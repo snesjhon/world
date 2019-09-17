@@ -1,0 +1,106 @@
+---
+title: README.md as a Personal Site
+date: 2018-12-18
+---
+
+After reading this article [Evolution of My Personal Site](https://dev.to/dstarner/evolution-of-my-personal-site-1849) I recalled how often I’d change my personal site as well. Most of the time I’d adopt a new framework with a new design. But I was always dissatisfied.
+
+I found that by the time I’d setup the site, chosen a theme, figured out the workflow (not to mention wrangle all the dependencies) I’d already be disinterested with how I’d update this site continuously.
+
+> I wanted something simpler.
+
+Here are the requirements I was looking for:
+
+- **Minimal setup**
+
+  - I didn’t want to deal with components, routers, boilerplates.
+  - Local dev workflows are nice, but it depends on how often you'd envision updating this site. For me, it wasn't very frequent.
+
+- **Clean/Simple Theme**
+
+  - I enjoy tinkering with themes, but I just wanted to manipulate a couple of simple css rules and be on my way.
+
+- **Easy to publish -- Anywhere.**
+  - Just push and publish. On my local or phone.
+
+Most recently I'd gone through the personal site rabbit hole with GatsbyJS. Although it's a great package -- again, by the time I'd setup everything I'd given up on keeping up with the site.
+
+_Sometimes too many options is not what everyone wants._
+
+---
+
+# Inspiration
+
+While reading the [dev.to](https://github.com/thepracticaldev/dev.to) README.md I was struck with how pleasant it must've been to write it.
+
+Not only was it clear, but it conveyed enough information to get the developer started.
+
+So I figured there must be a way of just converting a simple README.md file to a full fledged website and just use that as my personal site. One caveat -- I wanted what I saw on the markdown to be the website. Not another theme or styling, just Github Flavored Markdown style.
+
+_Welp. Not so simple._
+
+---
+
+# Github Pages, Gitlab Pages + showdown.js
+
+Here are my current options when trying to convert a markdown to a personal site. (disclaimer: I'm not saying any of these services are bad -- they just didn't fit my use case)
+
+**Github Pages**
+
+- As detailed [here](https://blog.github.com/2016-12-09-publishing-with-github-pages-now-as-easy-as-1-2-3/), you're able to upload a markdown file and have that as a Github Page.
+
+- However, Github Pages are closely tied with Jekyll Themes. They also add a title and header that aren't part of the markdown file. I had to use css to hide unwanted parts of the jekyll theme.
+
+**Gitlab Pages + showdown.js**
+
+- [Gitlab Pages](https://about.gitlab.com/product/pages/) were another option as they have a commit & push pipeline runner. Which is great because I could utilize any markdown cli converter to publish an index.html.
+- After searching on [many](https://github.com/showdownjs/showdown), [many](https://pandoc.org/getting-started.html) converters I found that they were great when you wanted to output html -- but not a complete `index.html`. That makes sense as they were built to output to a surrounding framework.
+
+### So why not just a simple `html` file?
+
+As I learned from the @dstarner blog, sometimes it's best to keep it simple. I wrote up a simple index.html file, added GFM css, and was done!
+
+But -- well -- have you tried to write html on your phone. It's not the most pleasant experience. Why can't I just write markdown?
+
+---
+
+# (Over)Engineering a Solution
+
+I'm thoroughly convinced that 96.4% of all npm modules were written because someone couldn't solve their problem so they wrote it themself.
+
+SO! I wrote a small cli to solve my problem.
+
+I called it [singlemd](https://gitlab.com/snesjhon/singlemd) and it accomplishes exactly what I want wanted.
+
+- Here's a [demo site](https://snesjhon.gitlab.io/singlemd/), and the [README.md](https://gitlab.com/snesjhon/singlemd/blob/master/README.md) source.
+
+My website is now just a simple markdown file, which I can modify anywhere. And with Gitlab Pages pipeline I can add a `.gitlab-ci.yml`
+
+```
+image: node:8.12.0
+
+pages:
+  cache:
+    paths:
+    - node_modules/
+
+  script:
+  - npm install singlemd -g
+  - singlemd --input ./README.md --output index.html --style ./public/style.css --title "snesjhon | Jhon Paredes"
+  - mv index.html ./public
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
+```
+
+And anytime I update my README.md my website is updated. **FUN!**
+
+- Here's my [personal site](https://snesjhon.com/) and the [repo](https://gitlab.com/snesjhon/snesjhon.gitlab.io)
+
+### Lessons
+
+This is the first npm package that I've published and I'm glad that it was something that I'm actively utilizing. Lots of work left to do, but overall a great experience learning how to create + publish a cli package.
+
+Thank you for reading!
