@@ -1,14 +1,15 @@
 import { Link } from "gatsby";
+import { Box, Image } from "rebass";
 import Blogs from "../components/Blogs";
 
 <div align="center">
-<br />
-
-<img
+<Image
   src="https://pbs.twimg.com/profile_images/1101627799427641344/cEc8VErd_400x400.png"
   alt="Jhon Paredes"
-  width="120"
-  height="120"
+  width="120px"
+  height="120px"
+  mt={4}
+  sx={{ borderRadius: "50%" }}
 />
 
 # Jhon Paredes
@@ -17,15 +18,18 @@ import Blogs from "../components/Blogs";
 
 [Twitter](https://twitter.com/snesjhon) · [Instagram](https://www.instagram.com/snesjhon/) · [Blog](https://dev.to/snesjhon) · [GitLab](https://gitlab.com/snesjhon) · [Resume](https://gitlab.com/snesjhon/snesjhon.gitlab.io/blob/master/public/resume.pdf)
 
-<br />
+</div>
 
-### ✍️ Blogs
+<Box p={3} sx={{
+      display: 'grid',
+      gridTemplateColumns: ["1fr", "1fr 1fr"],
+      gridGap: "1rem 3rem",
+      textAlign: "center"
+    }}>
 
-<Blogs />
+<div>
 
-<br />
-
-### ⚡️ Experience
+## ⚡️ Experience
 
 #### Currently
 
@@ -39,9 +43,19 @@ Software Engineer at [SOASTA](https://www.soasta.com)
 
 Web Developer at [Hawk Ridge Systems](https://www.hawkridgesys.com)
 
-<br />
+</div>
 
-### 🕹 Projects
+<div>
+
+## 📝 Blogs
+
+<Blogs />
+
+</div>
+
+<div>
+
+## 🕹 Projects
 
 #### 1 Second Every Day
 
@@ -61,17 +75,21 @@ _My ongoing list of Rolling Stone's 500 Best Albums_
 
 [What I've Listened So Far](https://docs.google.com/spreadsheets/d/1ZfLCreXs221cBq6m8PfdU8863zbTJs54FxKWJs5AsjA/edit?usp=sharing)
 
-<br />
+</div>
 
-### 🔜 Goals
+<div>
 
-|                           |                       |                                 |
-| :-----------------------: | :-------------------: | :-----------------------------: |
-|     ~~Alcatraz Swim~~     | Amtrak Cross Country  | ~~Become a Software Engineer~~  |
-| Contribute to Open Source |     Create a SaaS     |  Cross Country Motorcycle Trip  |
-|  Finish 1001 A/M Project  | Finish 500 RS project |  ~~Get a Motorcycle License~~   |
-|      Go back to Peru      |      Go to Japan      |      ~~Golden Gate Swim~~       |
-|        Own a House        | ~~Own a Motorcycle~~  |      Present at FluentConf      |
-|      Start a Company      |  Visit all 50 States  | ~~Work for a big Tech Company~~ |
+## 🔜 Goals
+
+### Current
+
+Own a House · Amtrak Cross Country · Finish 500 RS project · Go to Japan · Cross Country Motorcycle Trip · Present at Conf
+· Visit all 50 States
+
+### Completed
+
+~~Alcatraz Swim~~ · ~~Own a Motorcycle~~ · ~~Become a Software Engineer~~ · ~~Golden Gate Swim~~
 
 </div>
+
+</Box>

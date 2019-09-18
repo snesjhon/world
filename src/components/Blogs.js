@@ -1,5 +1,4 @@
 import React from "react";
-import { Box, Text } from "rebass";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 
@@ -11,9 +10,10 @@ const Layout = ({ children }) => (
           edges {
             node {
               id
+              fileAbsolutePath
               frontmatter {
                 title
-                sortDate: date(formatString: "MMMM YYYY")
+                sortDate: date(formatString: "YYYY")
                 date: date(formatString: "MMM DD, YYYY")
               }
             }
@@ -23,15 +23,35 @@ const Layout = ({ children }) => (
     `}
     render={data => {
       const posts = data.allMdx.edges;
-
+      const byYear = posts.reduce((a, c) => {
+        if (a[c.node.frontmatter.sortDate]) {
+          a[c.node.frontmatter.sortDate].push(c);
+        } else {
+          a[c.node.frontmatter.sortDate] = [c];
+        }
+        return a;
+      }, {});
       return (
         <>
-          {posts.map(({ node }) => (
-            <details open>
-              <summary> December 2018</summary>
-              <Link to="/oregontrip">{node.frontmatter.title}</Link>
-            </details>
-          ))}
+          {Object.keys(byYear)
+            .reverse()
+            .map((e, i) => (
+              <details key={e} open={i === 0 ? true : false}>
+                <summary>{e}</summary>
+                {byYear[e].map(item => (
+                  <Link
+                    key={item}
+                    to={`/${
+                      item.node.fileAbsolutePath
+                        .split("/blog/")[1]
+                        .split("/")[0]
+                    }`}
+                  >
+                    {item.node.frontmatter.title}
+                  </Link>
+                ))}
+              </details>
+            ))}
         </>
       );
     }}
@@ -54,6 +74,12 @@ export default Layout;
 // >
 //   <Text fontSize={1}>
 //     <Link to="/">Home</Link> / Blog
+// {posts.map(({ node }) => (
+//   <details open>
+//     <summary>2018</summary>
+//     <Link to="/oregontrip">{node.frontmatter.title}</Link>
+//   </details>
+// ))}
 //   </Text>
 //   <Text
 //     fontSize={5}

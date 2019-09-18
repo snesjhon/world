@@ -7,7 +7,7 @@ const Layout = ({ children }) => (
     className="markdown-body"
     maxWidth={["", "80vw", "70vw", "60vw", "50vw"]}
     mx="auto"
-    my={4}
+    my={2}
     sx={{ border: "1px solid #d1d5da", borderRadius: "3px" }}
   >
     {children}
