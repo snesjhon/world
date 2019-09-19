@@ -1,6 +1,14 @@
 import React from "react";
+import { Box } from "rebass";
 import { Link } from "gatsby";
+import styled from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
+
+const BlogsContainer = styled(Box)`
+  & summary {
+    outline: none;
+  }
+`;
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -36,21 +44,23 @@ const Layout = ({ children }) => (
           {Object.keys(byYear)
             .reverse()
             .map((e, i) => (
-              <details key={e} open={i === 0 ? true : false}>
-                <summary>{e}</summary>
-                {byYear[e].map(item => (
-                  <Link
-                    key={item}
-                    to={`/${
-                      item.node.fileAbsolutePath
-                        .split("/blog/")[1]
-                        .split("/")[0]
-                    }`}
-                  >
-                    {item.node.frontmatter.title}
-                  </Link>
-                ))}
-              </details>
+              <BlogsContainer key={e} mb={3}>
+                <details key={e + i} open={i === 0 ? true : false}>
+                  <summary>{e}</summary>
+                  {byYear[e].reverse().map(item => (
+                    <Box key={item.node.frontmatter.title}>
+                      <Link
+                        to={`/${item.node.fileAbsolutePath
+                          .split("/blog/")[1]
+                          .split("/")[0]
+                          .replace(".mdx", "")}`}
+                      >
+                        {item.node.frontmatter.title}
+                      </Link>
+                    </Box>
+                  ))}
+                </details>
+              </BlogsContainer>
             ))}
         </>
       );
@@ -59,36 +69,3 @@ const Layout = ({ children }) => (
 );
 
 export default Layout;
-
-// <Box
-//   className="markdown-body"
-//   maxWidth={["", "80vw", "70vw", "60vw", "50vw"]}
-//   mx="auto"
-//   my={4}
-//   p={4}
-//   sx={{
-//     border: "1px solid #d1d5da",
-//     borderRadius: "3px",
-//     position: "relative"
-//   }}
-// >
-//   <Text fontSize={1}>
-//     <Link to="/">Home</Link> / Blog
-// {posts.map(({ node }) => (
-//   <details open>
-//     <summary>2018</summary>
-//     <Link to="/oregontrip">{node.frontmatter.title}</Link>
-//   </details>
-// ))}
-//   </Text>
-//   <Text
-//     fontSize={5}
-//     fontWeight="600"
-//     sx={{ borderBottom: "1px solid #eaecef" }}
-//     mb={3}
-//   >
-//     {data.mdx.frontmatter.title}
-//   </Text>
-//   {children}
-//   <Text fontSize={1}>{data.mdx.frontmatter.date}</Text>
-// </Box>

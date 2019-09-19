@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -22,10 +23,31 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1024
+            }
+          }
+        ],
         defaultLayouts: {
           default: path.resolve("./src/components/MainLayout.js"),
           blog: path.resolve("./src/components/BlogLayout.js")
         }
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1024
+            }
+          }
+        ]
       }
     }
   ]

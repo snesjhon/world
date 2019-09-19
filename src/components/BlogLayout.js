@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text } from "rebass";
+import { Flex, Box, Text } from "rebass";
 import { Link } from "gatsby";
 import "../../node_modules/github-markdown-css/github-markdown.css";
 
@@ -28,7 +28,20 @@ const Layout = ({ children, pageContext }) => (
       {pageContext.frontmatter.title}
     </Text>
     {children}
-    <Text fontSize={1}>{pageContext.frontmatter.date}</Text>
+    <Flex
+      pt={2}
+      justifyContent="space-between"
+      sx={{ borderTop: "1px solid #eaecef" }}
+    >
+      <Box>
+        <Text fontSize={1}>Jhon Paredes</Text>
+      </Box>
+      <Box>
+        <Text fontSize={1}>
+          {new Date(pageContext.frontmatter.date).toLocaleDateString()}
+        </Text>
+      </Box>
+    </Flex>
   </Box>
 );
 
