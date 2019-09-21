@@ -14,7 +14,7 @@ const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query AllQuery {
-        allMdx {
+        allMdx(sort: { order: DESC, fields: frontmatter___date }) {
           edges {
             node {
               id
@@ -47,8 +47,8 @@ const Layout = ({ children }) => (
               <BlogsContainer key={e} mb={3}>
                 <details key={e + i} open={i === 0 ? true : false}>
                   <summary>{e}</summary>
-                  {byYear[e].reverse().map(item => (
-                    <Box key={item.node.frontmatter.title}>
+                  {byYear[e].map(item => (
+                    <Box mt={1} mb={2} key={item.node.frontmatter.title}>
                       <Link
                         to={`/${item.node.fileAbsolutePath
                           .split("/blog/")[1]
