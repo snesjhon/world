@@ -32,8 +32,8 @@ const BlogLayout = ({ children, pageContext }) => (
       </Text>
       {children}
       <Flex
-        pt={2}
-        mt={3}
+        pt={3}
+        mt={4}
         justifyContent="space-between"
         sx={{ borderTop: "1px solid #eaecef" }}
       >
