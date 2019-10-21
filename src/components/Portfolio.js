@@ -27,7 +27,11 @@ const ModalImg = props => {
       <ModalArrow left onClick={() => setActive(old => (old > 0 ? --old : 0))}>
         ▶︎
       </ModalArrow>
-      <ImgLoader source={images[active].src} preload={images[active].preload} />
+      <ImgLoader
+        source={images[active].src}
+        preload={images[active].preload}
+        height="56vh"
+      />
       <ModalArrow
         right
         onClick={() =>
@@ -42,7 +46,7 @@ const ModalImg = props => {
   );
 };
 
-const PortfolioImg = styled(Image)`
+const PortfolioImg = styled(ImgLoader)`
   width: 100%;
   border-radius: 3px;
   border: 1px solid #d1d5da !important;
@@ -63,7 +67,10 @@ const PortfolioType = props => {
         "Apply AI and Machine Learning algorithms to build analytic solutions that transform massive volumes of customer, event, and transaction data into accessible dashboards, alerts and automatic reports";
       tech = "JavaScript, React, Redux, TypeScript, Styled-Components, Webpack";
       role = "Lead UI Developer, Infrastructure, Design";
-      img = ImgH.condati1;
+      img = {
+        src: ImgH.condati1,
+        preload: ImgP.condati1
+      };
       year = "(2018 - Present)";
       source = "https://condati.com";
       break;
@@ -73,7 +80,10 @@ const PortfolioType = props => {
         "Get granular visibility into how end users perceive performance, and take action against third-party resources that are slowing you down. Maximize your business outcomes by prioritizing enhancements that matter.";
       tech = "JavaScript, React, Redux, Flow, Java, Selenium";
       role = "UI Developer, Design";
-      img = ImgH.akamai1;
+      img = {
+        src: ImgH.akamai1,
+        preload: ImgP.akamai1
+      };
       year = "(2017 - 2018)";
       source = "https://akamai.com/mpulse";
       break;
@@ -83,7 +93,10 @@ const PortfolioType = props => {
         "Cloud-based testing services, and created a browser-based website testing product. Website tests include load testing, software performance testing, functional testing and user interface testing.";
       tech = "Wordpress, PHP, JavaScript, Gulp, Pantheon Ops.";
       role = "Lead Designer, Wordpress Developer";
-      img = ImgH.soasta1;
+      img = {
+        src: ImgH.soasta1,
+        preload: ImgP.soasta1
+      };
       year = "(2015 - 2017)";
       source = "https://soasta.com";
       break;
@@ -93,7 +106,10 @@ const PortfolioType = props => {
         "The largest worldwide partner for Dassault Systèmes SOLIDWORKS, our goal at Hawk Ridge Systems is to provide you with the the widest selection of 3D design and manufacturing solutions, and access to the most experienced team of professionals in the industry.";
       tech = "Expression Engine, Wordpress, JavaScript, PHP";
       role = "UI Developer, Design";
-      img = ImgH.hrs1;
+      img = {
+        src: ImgH.hrs1,
+        preload: ImgP.hrs1
+      };
       year = "(2013 - 2015)";
       source = "https://hawkridgesys.com/";
       break;
@@ -103,7 +119,10 @@ const PortfolioType = props => {
         "CrossFit begins with a belief in fitness. The aim of CrossFit is to forge a broad, general and inclusive fitness. We have sought to build a program that will best prepare trainees for any physical contingency — not only for the unknown, but for the unknowable.";
       tech = "Wordpress, JavaScript, PHP";
       role = "Lead Designer, Lead UI Developer";
-      img = ImgH.cfega1;
+      img = {
+        src: ImgH.cfega1,
+        preload: ImgP.cfega1
+      };
       year = "(2014)";
       source = "http://www.endgameathletics.com/";
       break;
@@ -127,7 +146,7 @@ const Portfolio = props => {
       {types.map((e, i) => {
         const isEven = i % 2;
         return (
-          <PortfolioType type={e}>
+          <PortfolioType key={e} type={e}>
             {({ title, description, tech, role, img, source, year }) => (
               <Flex
                 mt={i === 0 ? 4 : 5}
@@ -184,7 +203,11 @@ const Portfolio = props => {
                   pl={isEven ? undefined : 4}
                   pr={isEven ? 4 : undefined}
                 >
-                  <PortfolioImg src={img} onClick={() => setCurrent(e)} />
+                  <PortfolioImg
+                    source={img.src}
+                    preload={img.preload}
+                    onClick={() => setCurrent(e)}
+                  />
                 </Box>
               </Flex>
             )}

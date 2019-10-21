@@ -4,7 +4,7 @@ import styled from "styled-components";
 const ImgContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 56vh;
+  height: ${props => (props.height ? props.height : "100%")};
   overflow: hidden;
   border: 1px solid #d1d5da;
   & .fade-in {
@@ -49,7 +49,7 @@ class IronImage extends Component {
 
   render() {
     return (
-      <ImgContainer>
+      <ImgContainer {...this.props}>
         <ImgLoaded ref={node => (this.imgHD = node)}></ImgLoaded>
         <ImgPreloader
           style={{ backgroundImage: `url('${this.props.preload}')` }}

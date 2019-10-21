@@ -19,7 +19,7 @@ const Overlay = styled(Box)`
 const Presentation = styled(Box)`
   display: ${props => (props.isOpen ? "flex" : "none")};
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   width: 60vw;
