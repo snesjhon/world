@@ -4,7 +4,7 @@ import React from "react";
 function Header(): JSX.Element {
   return (
     <Flex pt={20} pb={10} justifyContent="space-between" alignItems="baseline">
-      <Heading size="4xl" fontWeight="light">
+      <Heading fontSize="5rem" fontWeight="light">
         Jhon Paredes
       </Heading>
       <Flex justifyContent="space-between">

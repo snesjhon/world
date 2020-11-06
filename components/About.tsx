@@ -1,11 +1,36 @@
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/core";
+import {
+  Image,
+  Box,
+  Button,
+  Flex,
+  Heading,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/core";
 import React from "react";
 
 function About(): JSX.Element {
   return (
     <>
-      <Flex py={20}>
-        <Box>About me</Box>
+      <SimpleGrid columns={2} py={20}>
+        <Box>
+          <Box
+            border="2px solid black"
+            p={4}
+            ml={10}
+            display="inline-block"
+            position="relative"
+            w="300px"
+            h="350px"
+          >
+            <Image
+              src="gibbresh.png"
+              fallbackSrc="https://via.placeholder.com/280x310"
+              position="absolute"
+              left="-10%"
+            />
+          </Box>
+        </Box>
         <Box>
           <Heading>
             Software Engineer <br /> + Music Enthusiast
@@ -16,7 +41,7 @@ function About(): JSX.Element {
           </Text>
           <Button colorScheme="cyan">Get in Touch</Button>
         </Box>
-      </Flex>
+      </SimpleGrid>
       <Flex px={10} justifyContent="space-between">
         <Box>
           <Heading size="md">Technologies</Heading>
