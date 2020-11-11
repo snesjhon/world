@@ -6,7 +6,11 @@ import Head from "next/head";
 const customTheme = extendTheme({
   components: {
     Heading: {
-      baseStyle: "'Hanuman', serif",
+      baseStyle: {
+        fontFamily: `'Hanuman', serif`,
+        fontWeight: "light",
+        letterSpacing: "0.04rem",
+      },
     },
   },
   styles: {
@@ -25,10 +29,6 @@ function GlobalApp({ Component, pageProps }: AppProps): JSX.Element {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&family=Open+Sans&display=swap"
-          rel="stylesheet"
         />
       </Head>
       <ChakraProvider theme={customTheme}>
