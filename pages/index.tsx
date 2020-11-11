@@ -10,21 +10,21 @@ function App(): JSX.Element {
     <>
       <Container maxW="lg" my={{ base: 0, sm: 3 }} px={{ base: 0, sm: 4 }}>
         <Box border="2px solid black">
-          <Box px={{ base: 5, sm: 10, lg: 20 }}>
-            <Header />
-          </Box>
-          <Divider border="1px solid black" borderColor="black" opacity={1} />
-          <Box px={{ base: 5, sm: 10, lg: 20 }}>
-            <About />
-          </Box>
-          <Divider border="1px solid black" borderColor="black" opacity={1} />
+          <Header />
+          <SolidDivider />
+          <About />
+          <SolidDivider />
           <Experience />
-          <Divider border="1px solid black" borderColor="black" opacity={1} />
+          <SolidDivider />
           <Work />
         </Box>
       </Container>
     </>
   );
+}
+
+function SolidDivider(): JSX.Element {
+  return <Divider border="1px solid black" borderColor="black" opacity={1} />;
 }
 
 export default App;

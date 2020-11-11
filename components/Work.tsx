@@ -32,6 +32,9 @@ function Work(): JSX.Element {
         <WorkItem />
         <WorkItem />
       </Box>
+      <Flex justifyContent="center">
+        <WorkItem />
+      </Flex>
     </>
   );
 }
@@ -46,8 +49,8 @@ function WorkItem(): JSX.Element {
     >
       <Image src="https://via.placeholder.com/400x250" />
       <Flex py={8} justifyContent="space-between">
-        <Heading>conDati</Heading>
-        <Text>(2018 - currently)</Text>
+        <Heading color="gray.700">conDati</Heading>
+        <Text color="gray.700">(2018 - currently)</Text>
       </Flex>
       <Flex>
         <Tag>Item</Tag>

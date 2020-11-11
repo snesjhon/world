@@ -13,13 +13,7 @@ import React from "react";
 
 function About(): JSX.Element {
   return (
-    <>
-      {/* <Grid
-        gridTemplateColumns={{ sm: "1fr", md: "0.7fr 1fr" }}
-        gridTemplateRows={{ sm: "1fr 1fr", md: "1fr" }}
-        py={20}
-        gridGap={{ base: "2rem", sm: "5rem", lg: "10rem" }}
-      > */}
+    <Box px={{ base: 5, sm: 10, lg: 20 }}>
       <Box display={{ md: "flex" }} justifyContent="space-between" py={20}>
         <Box maxW={{ md: "40%" }} mr={10}>
           <Box
@@ -65,7 +59,6 @@ function About(): JSX.Element {
           </Button>
         </Box>
       </Box>
-      {/* </Grid> */}
       <Flex px={10} justifyContent="space-between">
         <Box>
           <Text fontSize="lg" fontWeight="bold">
@@ -78,7 +71,7 @@ function About(): JSX.Element {
           </Text>
         </Box>
       </Flex>
-    </>
+    </Box>
   );
 }
 
