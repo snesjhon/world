@@ -22,14 +22,14 @@ function Work(): JSX.Element {
         display={{ base: "block", sm: "block", md: "grid" }}
         gridTemplateColumns={{ md: "1fr 1fr" }}
       >
-        <WorkItem />
+        <WorkItem br />
         <WorkItem />
       </Box>
       <Box
         display={{ base: "block", sm: "block", md: "grid" }}
         gridTemplateColumns={{ md: "1fr 1fr" }}
       >
-        <WorkItem />
+        <WorkItem br />
         <WorkItem />
       </Box>
       <Flex justifyContent="center">
@@ -39,11 +39,11 @@ function Work(): JSX.Element {
   );
 }
 
-function WorkItem(): JSX.Element {
+function WorkItem({ br }: { br?: boolean }): JSX.Element {
   return (
     <Box
       p={10}
-      borderRight="1px solid black"
+      borderRight={br ? "1px solid black" : undefined}
       borderBottom="1px solid black"
       flexDirection="column"
     >
