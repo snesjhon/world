@@ -32,32 +32,31 @@ function Work(): JSX.Element {
         <WorkItem br />
         <WorkItem />
       </Box>
-      <Flex justifyContent="center">
-        <WorkItem />
-      </Flex>
+      <WorkItem />
     </>
   );
 }
 
 function WorkItem({ br }: { br?: boolean }): JSX.Element {
   return (
-    <Box
-      p={10}
+    <Flex
       borderRight={br ? "1px solid black" : undefined}
       borderBottom="1px solid black"
-      flexDirection="column"
+      justifyContent="center"
     >
-      <Image src="https://via.placeholder.com/400x250" />
-      <Flex py={8} justifyContent="space-between">
-        <Heading color="gray.700">conDati</Heading>
-        <Text color="gray.700">(2018 - currently)</Text>
-      </Flex>
-      <Flex>
-        <Tag>Item</Tag>
-        <Tag>Item2</Tag>
-        <Tag>Item3</Tag>
-      </Flex>
-    </Box>
+      <Box p={10} flexDirection="column">
+        <Image src="https://via.placeholder.com/400x250" />
+        <Flex py={8} justifyContent="space-between">
+          <Heading color="gray.700">conDati</Heading>
+          <Text color="gray.700">(2018 - currently)</Text>
+        </Flex>
+        <Flex>
+          <Tag>Item</Tag>
+          <Tag>Item2</Tag>
+          <Tag>Item3</Tag>
+        </Flex>
+      </Box>
+    </Flex>
   );
 }
 
