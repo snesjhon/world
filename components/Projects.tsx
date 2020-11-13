@@ -9,7 +9,19 @@ import {
 } from "@chakra-ui/core";
 import React from "react";
 
-function ProjectItem(): JSX.Element {
+function ProjectItem({
+  tags,
+  title,
+  description,
+  link,
+  img,
+}: {
+  tags: string[];
+  title: string;
+  description: string;
+  link: string;
+  img: string;
+}): JSX.Element {
   return (
     <>
       <Flex py={16} px={10}>
@@ -20,16 +32,18 @@ function ProjectItem(): JSX.Element {
           flexDirection="column"
           justifyContent="space-between"
         >
-          <Text>Data | another</Text>
+          {tags.map((e) => (
+            <Text key={e}>{e}</Text>
+          ))}
           <Box>
-            <Heading>My Music</Heading>
-            <Text>lorem loremloremloremloremloremlorem loremlorem</Text>
+            <Heading>{title}</Heading>
+            <Text>{description}</Text>
           </Box>
 
-          <Link>View Project</Link>
+          <Link href={link}>View Project</Link>
         </Flex>
         <Box>
-          <Image src="https://via.placeholder.com/468x250" />
+          <Image src={img} />
         </Box>
       </Flex>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
@@ -62,10 +76,34 @@ function Projects(): JSX.Element {
         </Flex>
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
+      <ProjectItem
+        description="lorem lorem"
+        img="https://via.placeholder.com/468x250"
+        link="https://google.com"
+        tags={["jhon", "something"]}
+        title="My Music"
+      />
+      <ProjectItem
+        description="lorem lorem"
+        img="https://via.placeholder.com/468x250"
+        link="https://google.com"
+        tags={["jhon", "something"]}
+        title="My Music"
+      />
+      <ProjectItem
+        description="lorem lorem"
+        img="https://via.placeholder.com/468x250"
+        link="https://google.com"
+        tags={["jhon", "something"]}
+        title="My Music"
+      />
+      <ProjectItem
+        description="lorem lorem"
+        img="https://via.placeholder.com/468x250"
+        link="https://google.com"
+        tags={["jhon", "something"]}
+        title="My Music"
+      />
     </>
   );
 }
