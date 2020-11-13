@@ -2,6 +2,7 @@ import { Box, Container, Divider } from "@chakra-ui/core";
 import React from "react";
 import About from "../components/About";
 import Experience from "../components/Experience";
+import Footer from "../components/Footer";
 import Goals from "../components/Goals";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
@@ -22,6 +23,8 @@ function App(): JSX.Element {
           <SolidDivider />
           <Projects />
           <Goals />
+          <SolidDivider />
+          <Footer />
         </Box>
       </Container>
     </>

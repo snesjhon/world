@@ -6,6 +6,7 @@ import {
   Text,
   Link,
   Image,
+  Grid,
 } from "@chakra-ui/core";
 import React from "react";
 
@@ -24,28 +25,39 @@ function ProjectItem({
 }): JSX.Element {
   return (
     <>
-      <Flex py={16} px={10}>
+      <Grid py={16} px={10} gridTemplateColumns="1fr 1fr">
         <Flex
           borderRight="1px solid black"
           pr={10}
           mr={10}
           flexDirection="column"
-          justifyContent="space-between"
+          justifyContent="space-around"
         >
-          {tags.map((e) => (
-            <Text key={e}>{e}</Text>
-          ))}
+          <Flex>
+            {tags.map((e, i) => (
+              <Text key={e} color="gray.500" fontSize="xs">
+                {e}
+                {i !== tags.length - 1 && (
+                  <Text as="span" px={2}>
+                    |
+                  </Text>
+                )}
+              </Text>
+            ))}
+          </Flex>
           <Box>
-            <Heading>{title}</Heading>
-            <Text>{description}</Text>
+            <Heading color="gray.900">{title}</Heading>
+            <Text color="gray.600">{description}</Text>
           </Box>
 
-          <Link href={link}>View Project</Link>
+          <Link href={link} isExternal color="cyan.700">
+            View Project
+          </Link>
         </Flex>
         <Box>
           <Image src={img} />
         </Box>
-      </Flex>
+      </Grid>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
     </>
   );
@@ -77,10 +89,10 @@ function Projects(): JSX.Element {
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
       <ProjectItem
-        description="lorem lorem"
+        description="How my music taste has change over time lbut make it data visualization"
         img="https://via.placeholder.com/468x250"
         link="https://google.com"
-        tags={["jhon", "something"]}
+        tags={["Data Visualization", "Final Project"]}
         title="My Music"
       />
       <ProjectItem

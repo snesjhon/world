@@ -1,15 +1,5 @@
-import {
-  Image,
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Grid,
-  Text,
-  useBreakpointValue,
-} from "@chakra-ui/core";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/core";
 import React from "react";
-// import avatar from "images/avatar.jpg";
 
 function About(): JSX.Element {
   return (
@@ -22,12 +12,21 @@ function About(): JSX.Element {
               content: "''",
               position: "absolute",
               top: "-5%",
-              right: "-10%",
+              right: "-15%",
               width: "100%",
               height: "110%",
               border: "2px solid black",
               borderRadius: "5px",
-              zIndex: "-1",
+              zIndex: -1,
+            }}
+            _after={{
+              content: "'About me'",
+              position: "absolute",
+              top: "45%",
+              right: "-30%",
+              backgroundColor: "white",
+              padding: 2,
+              zIndex: -1,
             }}
           >
             <Image
