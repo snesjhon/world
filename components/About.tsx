@@ -1,7 +1,22 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/core";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/core";
 import React from "react";
 
 function About(): JSX.Element {
+  const beforeItem = useBreakpointValue({ base: 0, sm: "-5%", md: "-15%" });
+  const afterItemTop = useBreakpointValue({
+    base: "-8%",
+    sm: "-8%",
+    md: "45%",
+  });
+  const afterItemRight = useBreakpointValue({ base: 0, sm: 0, md: "-30%" });
   return (
     <Box px={{ base: 5, sm: 10, lg: 20 }}>
       <Box display={{ md: "flex" }} justifyContent="space-between" py={20}>
@@ -12,7 +27,7 @@ function About(): JSX.Element {
               content: "''",
               position: "absolute",
               top: "-5%",
-              right: "-15%",
+              right: beforeItem,
               width: "100%",
               height: "110%",
               border: "2px solid black",
@@ -22,11 +37,11 @@ function About(): JSX.Element {
             _after={{
               content: "'About me'",
               position: "absolute",
-              top: "45%",
-              right: "-30%",
+              top: afterItemTop,
+              right: afterItemRight,
               backgroundColor: "white",
               padding: 2,
-              zIndex: -1,
+              zIndex: 1,
             }}
           >
             <Image
