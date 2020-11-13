@@ -39,22 +39,22 @@ function Experience(): JSX.Element {
         <Box pr={{ base: 0, md: 10 }}>
           <Box py={{ base: 0, md: 20 }}>
             <Job
-              number={1}
-              title="Co-Founder"
-              year="2020 - Present"
+              number={3}
+              title="Software Engineer II"
+              year="2017 - 2018"
               company="Akamai"
             />
             <Job
-              number={2}
-              title="Sr. UI Engineer"
-              year="2018 - Present"
-              company="conDati"
+              number={4}
+              title="Software Engineer"
+              year="2015 - 2017"
+              company="SOASTA"
             />
             <Job
-              number={2}
-              title="Sr. UI Engineer"
-              year="2018 - Present"
-              company="conDati"
+              number={5}
+              title="Web Developer"
+              year="2012 - 2015"
+              company="Hawk Ridge Systems"
             />
           </Box>
         </Box>

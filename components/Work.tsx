@@ -1,4 +1,13 @@
-import { Box, Divider, Flex, Heading, Image, Tag, Text } from "@chakra-ui/core";
+import {
+  Box,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Tag,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/core";
 import React from "react";
 
 function Work(): JSX.Element {
@@ -22,38 +31,76 @@ function Work(): JSX.Element {
         display={{ base: "block", sm: "block", md: "grid" }}
         gridTemplateColumns={{ md: "1fr 1fr" }}
       >
-        <WorkItem br />
-        <WorkItem />
+        <WorkItem
+          br
+          title="conDati"
+          year="2018 - current"
+          tags={["Lead UI Developer", "Infrastructure", "Design"]}
+        />
+        <WorkItem
+          title="Akamai mPulse"
+          year="2017 - 2018"
+          tags={["UI Developer", "Design"]}
+        />
       </Box>
       <Box
         display={{ base: "block", sm: "block", md: "grid" }}
         gridTemplateColumns={{ md: "1fr 1fr" }}
       >
-        <WorkItem br />
-        <WorkItem />
+        <WorkItem
+          br
+          title="SOASTA"
+          year="2015 - 2017"
+          tags={["Lead Designer", "Wordpress Developer"]}
+        />
+        <WorkItem
+          title="Hawk Ridge Systems"
+          year="2013 - 2015"
+          tags={["UI Developer", "Design"]}
+        />
       </Box>
-      <WorkItem />
+      <WorkItem
+        title="CrossFit Endgame"
+        year="2014"
+        tags={["Lead Designer", "Lead UI Developer"]}
+        last
+      />
     </>
   );
 }
 
-function WorkItem({ br }: { br?: boolean }): JSX.Element {
+function WorkItem({
+  br,
+  last,
+  title,
+  year,
+  tags,
+}: {
+  br?: boolean;
+  last?: boolean;
+  title: string;
+  year: string;
+  tags: string[];
+}): JSX.Element {
+  const borderRight = useBreakpointValue({ md: "1px solid black" });
   return (
     <Flex
-      borderRight={br ? "1px solid black" : undefined}
-      borderBottom="1px solid black"
+      borderRight={br ? borderRight : undefined}
+      borderBottom={last ? undefined : "1px solid black"}
       justifyContent="center"
     >
       <Box p={10} flexDirection="column">
         <Image src="https://via.placeholder.com/400x250" />
         <Flex py={8} justifyContent="space-between">
-          <Heading color="gray.700">conDati</Heading>
-          <Text color="gray.700">(2018 - currently)</Text>
+          <Heading color="gray.700">{title}</Heading>
+          <Text color="gray.700">({year})</Text>
         </Flex>
         <Flex>
-          <Tag>Item</Tag>
-          <Tag>Item2</Tag>
-          <Tag>Item3</Tag>
+          {tags.map((e) => (
+            <Tag key={e} mr={6}>
+              {e}
+            </Tag>
+          ))}
         </Flex>
       </Box>
     </Flex>

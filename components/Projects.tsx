@@ -25,9 +25,15 @@ function ProjectItem({
 }): JSX.Element {
   return (
     <>
-      <Grid py={16} px={10} gridTemplateColumns="1fr 1fr">
+      <Grid
+        py={10}
+        px={10}
+        gridTemplateColumns={{ sm: "0.95fr", md: "1fr 1fr" }}
+        gridTemplateRows={{ sm: "1fr 1fr", md: "1fr" }}
+        justifyContent="center"
+      >
         <Flex
-          borderRight="1px solid black"
+          borderRight={{ md: "1px solid black" }}
           pr={10}
           mr={10}
           flexDirection="column"
@@ -54,7 +60,7 @@ function ProjectItem({
             View Project
           </Link>
         </Flex>
-        <Box>
+        <Box order={{ base: -1, md: 1 }}>
           <Image src={img} />
         </Box>
       </Grid>
@@ -90,28 +96,28 @@ function Projects(): JSX.Element {
       <Divider border="1px solid black" borderColor="black" opacity={1} />
       <ProjectItem
         description="How my music taste has change over time lbut make it data visualization"
-        img="https://via.placeholder.com/468x250"
+        img="https://via.placeholder.com/400x250"
         link="https://google.com"
         tags={["Data Visualization", "Final Project"]}
         title="My Music"
       />
       <ProjectItem
-        description="lorem lorem"
-        img="https://via.placeholder.com/468x250"
+        description="How my music taste has change over time lbut make it data visualization"
+        img="https://via.placeholder.com/400x250"
         link="https://google.com"
         tags={["jhon", "something"]}
         title="My Music"
       />
       <ProjectItem
         description="lorem lorem"
-        img="https://via.placeholder.com/468x250"
+        img="https://via.placeholder.com/400x250"
         link="https://google.com"
         tags={["jhon", "something"]}
         title="My Music"
       />
       <ProjectItem
         description="lorem lorem"
-        img="https://via.placeholder.com/468x250"
+        img="https://via.placeholder.com/400x250"
         link="https://google.com"
         tags={["jhon", "something"]}
         title="My Music"
