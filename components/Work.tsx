@@ -89,20 +89,18 @@ function WorkItem({
       borderBottom={last ? undefined : "1px solid black"}
       justifyContent="center"
     >
-      <Box p={10} flexDirection="column">
+      <Flex p={10} flexDirection="column">
         <Image src="https://via.placeholder.com/400x250" />
         <Flex py={8} justifyContent="space-between">
           <Heading color="gray.700">{title}</Heading>
           <Text color="gray.700">({year})</Text>
         </Flex>
-        <Flex>
+        <Flex justifyContent="space-evenly" marginTop="auto">
           {tags.map((e) => (
-            <Tag key={e} mr={6}>
-              {e}
-            </Tag>
+            <Tag key={e}>{e}</Tag>
           ))}
         </Flex>
-      </Box>
+      </Flex>
     </Flex>
   );
 }

@@ -1,8 +1,18 @@
-import { Flex, Box, Heading, Text, useBreakpointValue } from "@chakra-ui/core";
+import {
+  Flex,
+  Box,
+  Heading,
+  Text,
+  useBreakpointValue,
+  Button,
+  useColorMode,
+} from "@chakra-ui/core";
 import React from "react";
 
 function Header(): JSX.Element {
   const headerSize = useBreakpointValue({ base: "3xl", xs: "4xl" });
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Box px={{ base: 5, sm: 10, lg: 20 }}>
       <Box
@@ -17,6 +27,7 @@ function Header(): JSX.Element {
           <Text>Portfolio</Text>
           <Text px={4}>Projects</Text>
           <Text>Resume</Text>
+          <Button onClick={toggleColorMode}>Dark</Button>
         </Flex>
       </Box>
     </Box>

@@ -12,7 +12,7 @@ function App(): JSX.Element {
   return (
     <>
       <Container maxW="lg" my={{ base: 0, sm: 3 }} px={{ base: 0, sm: 4 }}>
-        <Box border="2px solid black">
+        <Box border="2px solid" borderColor="gray.900">
           <Header />
           <SolidDivider />
           <About />

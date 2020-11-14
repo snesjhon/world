@@ -95,32 +95,32 @@ function Projects(): JSX.Element {
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
       <ProjectItem
-        description="How my music taste has change over time lbut make it data visualization"
+        description="My Data Visualization Final Project about my iTunes Music Data created using Observable"
         img="https://via.placeholder.com/400x250"
         link="https://google.com"
         tags={["Data Visualization", "Final Project"]}
         title="My Music"
       />
       <ProjectItem
-        description="How my music taste has change over time lbut make it data visualization"
+        description="Make a website with just a single Markdown file"
         img="https://via.placeholder.com/400x250"
         link="https://google.com"
-        tags={["jhon", "something"]}
-        title="My Music"
+        tags={["npm package", "markdown"]}
+        title="singlemd"
       />
       <ProjectItem
-        description="lorem lorem"
+        description="Imagine a movie that includes every day of the rest of your life."
         img="https://via.placeholder.com/400x250"
         link="https://google.com"
-        tags={["jhon", "something"]}
-        title="My Music"
+        tags={["personal", "youtube"]}
+        title="1 Second Every Day"
       />
       <ProjectItem
-        description="lorem lorem"
+        description="My ongoing list of Rolling Stone's 500 Best Albums"
         img="https://via.placeholder.com/400x250"
         link="https://google.com"
-        tags={["jhon", "something"]}
-        title="My Music"
+        tags={["music", "lists"]}
+        title="RS 500"
       />
     </>
   );
