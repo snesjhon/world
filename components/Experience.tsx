@@ -6,7 +6,7 @@ import {
   SimpleGrid,
   Text,
   useBreakpointValue,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import React from "react";
 
 function Experience(): JSX.Element {

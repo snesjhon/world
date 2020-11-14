@@ -1,4 +1,4 @@
-import { Box, Container, Divider } from "@chakra-ui/core";
+import { Box, Container, Divider } from "@chakra-ui/react";
 import React from "react";
 import About from "../components/About";
 import Experience from "../components/Experience";

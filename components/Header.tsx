@@ -6,7 +6,7 @@ import {
   useBreakpointValue,
   Button,
   useColorMode,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import React from "react";
 
 function Header(): JSX.Element {

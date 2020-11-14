@@ -5,7 +5,7 @@ import {
   SimpleGrid,
   useBreakpointValue,
   Text,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import React from "react";
 
 const goals = [

@@ -6,7 +6,7 @@ import {
   Image,
   Text,
   useBreakpointValue,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import React from "react";
 
 function About(): JSX.Element {
