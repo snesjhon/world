@@ -16,7 +16,6 @@ import {
 import React, { useState } from "react";
 
 function Work(): JSX.Element {
-  // const { isOpen, onOpen, onClose } = useDisclosure();
   const [isOpen, setIsOpen] = useState("");
 
   return (
@@ -78,11 +77,62 @@ function Work(): JSX.Element {
         onOpen={onOpen}
         last
       />
-      <Modal isOpen={isOpen !== ""} onClose={() => setIsOpen("")} isCentered>
+      <Modal
+        isOpen={isOpen !== ""}
+        onClose={() => setIsOpen("")}
+        isCentered
+        size="xl"
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>{isOpen}</ModalBody>
+          <ModalBody>
+            {isOpen === "conDati" && (
+              <WorkModal
+                company={isOpen}
+                description="something something something"
+                imgArr={["asd", "asd"]}
+                tech={["asd", "asd"]}
+                title="UI Developer"
+              />
+            )}
+            {isOpen === "Akamai mPulse" && (
+              <WorkModal
+                company={isOpen}
+                description="something something something"
+                imgArr={["asd", "asd"]}
+                tech={["asd", "asd"]}
+                title="UI Developer"
+              />
+            )}
+            {isOpen === "SOASTA" && (
+              <WorkModal
+                company={isOpen}
+                description="something something something"
+                imgArr={["asd", "asd"]}
+                tech={["asd", "asd"]}
+                title="UI Developer"
+              />
+            )}
+            {isOpen === "Hawk Ridge Systems" && (
+              <WorkModal
+                company={isOpen}
+                description="something something something"
+                imgArr={["asd", "asd"]}
+                tech={["asd", "asd"]}
+                title="UI Developer"
+              />
+            )}
+            {isOpen === "CrossFit Endgame" && (
+              <WorkModal
+                company={isOpen}
+                description="something something something"
+                imgArr={["asd", "asd"]}
+                tech={["asd", "asd"]}
+                title="UI Developer"
+              />
+            )}
+          </ModalBody>
         </ModalContent>
       </Modal>
     </>
@@ -133,4 +183,37 @@ function WorkItem({
   );
 }
 
+function WorkModal({
+  imgArr,
+  title,
+  company,
+  description,
+  tech,
+}: {
+  imgArr: string[];
+  title: string;
+  company: string;
+  description: string;
+  tech: string[];
+}) {
+  return (
+    <Flex>
+      <Box pr={4} borderRight="1px solid" borderColor="black">
+        <Flex justifyContent="space-between">
+          <Heading>{company}</Heading>
+          <Text>{title}</Text>
+        </Flex>
+        <Text>{description}</Text>
+      </Box>
+      <Box>
+        <Text fontSize="lg">Technologies</Text>
+        <Flex>
+          {tech.map((e) => (
+            <Text key={e}>{e}</Text>
+          ))}
+        </Flex>
+      </Box>
+    </Flex>
+  );
+}
 export default Work;
