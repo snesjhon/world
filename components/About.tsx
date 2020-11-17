@@ -3,11 +3,16 @@ import {
   Button,
   Flex,
   Heading,
+  IconProps,
   Image,
+  SimpleGrid,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { FunctionComponent, PropsWithChildren } from "react";
+import ChakraIcon from "./Icons/ChakraIcon";
+import ReactIcon from "./Icons/ReactIcon";
+import ReduxIcon from "./Icons/ReduxIcon";
 
 function About(): JSX.Element {
   const beforeItem = useBreakpointValue({ base: 0, sm: "-5%", md: "-15%" });
@@ -73,20 +78,56 @@ function About(): JSX.Element {
           </Button>
         </Box>
       </Box>
-      <Flex px={10} justifyContent="space-between">
+      <Flex py={10} justifyContent="space-between">
         <Box>
-          <Text fontSize="lg" fontWeight="bold">
+          <Text pb={10} fontSize="lg" fontWeight="bold">
             Technologies
           </Text>
+          <SimpleGrid columns={{ sm: 2, md: 4 }} gap={10}>
+            <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
+            <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
+          </SimpleGrid>
         </Box>
         <Box>
-          <Text fontSize="lg" fontWeight="bold">
+          <Text pb={10} fontSize="lg" fontWeight="bold">
             Languages
           </Text>
+          <SimpleGrid columns={{ sm: 2, md: 4 }} gap={10}>
+            <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
+            <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReactIcon} text="React" />
+            <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
+          </SimpleGrid>
         </Box>
       </Flex>
     </Box>
   );
 }
 
+function AboutIcon({
+  IconCmpt,
+  text,
+}: {
+  IconCmpt: FunctionComponent<IconProps>;
+  text: string;
+}) {
+  return (
+    <Box textAlign="center">
+      <IconCmpt color="gray.900" boxSize={12} mb={2} />
+      <Text fontSize="xs" color="gray.600">
+        {text}
+      </Text>
+    </Box>
+  );
+}
 export default About;

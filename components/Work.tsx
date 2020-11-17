@@ -170,7 +170,9 @@ function WorkItem({
           onClick={() => onOpen(title)}
         />
         <Flex py={8} justifyContent="space-between">
-          <Heading color="gray.700">{title}</Heading>
+          <Heading size="lg" color="gray.700">
+            {title}
+          </Heading>
           <Text color="gray.700">({year})</Text>
         </Flex>
         <Flex justifyContent="space-evenly" marginTop="auto">
