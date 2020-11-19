@@ -5,12 +5,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&family=Open+Sans&display=swap"
-            as="font"
-            crossOrigin=""
-          />
+          <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&family=Open+Sans&display=swap" />
         </Head>
         <body>
           <Main />

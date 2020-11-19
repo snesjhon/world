@@ -8,8 +8,9 @@ import {
   SimpleGrid,
   Text,
   useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import React, { FunctionComponent, PropsWithChildren } from "react";
+import React, { FunctionComponent } from "react";
 import ChakraIcon from "./Icons/ChakraIcon";
 import ReactIcon from "./Icons/ReactIcon";
 import ReduxIcon from "./Icons/ReduxIcon";
@@ -22,6 +23,7 @@ function About(): JSX.Element {
     md: "45%",
   });
   const afterItemRight = useBreakpointValue({ base: 0, sm: 0, md: "-30%" });
+  const borderColor = useColorModeValue("#fafafa", "gray.800");
   return (
     <Box px={{ base: 5, sm: 10, lg: 20 }}>
       <Box display={{ md: "flex" }} justifyContent="space-between" py={20}>
@@ -35,16 +37,18 @@ function About(): JSX.Element {
               right: beforeItem,
               width: "100%",
               height: "110%",
-              border: "2px solid black",
+              border: "2px solid",
+              borderColor: !borderColor + "", // lol ts
               borderRadius: "5px",
-              zIndex: -1,
+              zIndex: 0,
             }}
             _after={{
               content: "'About me'",
               position: "absolute",
               top: afterItemTop,
               right: afterItemRight,
-              backgroundColor: "white",
+              // backgroundColor: "#fafafa",
+              backgroundColor: borderColor,
               padding: 2,
               zIndex: 1,
             }}

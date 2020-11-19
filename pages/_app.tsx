@@ -12,13 +12,20 @@ const customTheme = extendTheme({
         letterSpacing: "0.04rem",
       },
     },
-  },
-  styles: {
-    global: {
-      "html, body": {
-        fontFamily: "'Open Sans', sans-serif",
+    Button: {
+      baseStyle: {
+        lineHeight: 1,
       },
     },
+  },
+  styles: {
+    global: (props) => ({
+      body: {
+        fontFamily: "'Open Sans', sans-serif",
+        background: props.colorMode === "light" ? "#fafafa" : "gray.800",
+        color: props.colorMode === "light" ? "gray.800" : "#fafafa",
+      },
+    }),
   },
 });
 
