@@ -6,15 +6,18 @@ import Head from "next/head";
 const customTheme = extendTheme({
   components: {
     Heading: {
-      baseStyle: {
-        fontFamily: `'Hanuman', serif`,
-        fontWeight: "light",
-        letterSpacing: "0.04rem",
-      },
+      baseStyle: ({ colorMode }: { colorMode: "light" | "dark" }) => ({
+        fontFamily: `'Lato', sans-serif`,
+        fontWeight: 400,
+        color: colorMode === "light" ? "gray.700" : "#fafafa",
+      }),
     },
     Button: {
       baseStyle: {
         lineHeight: 1,
+        _focus: {
+          boxShadow: "none",
+        },
       },
     },
   },
@@ -23,7 +26,7 @@ const customTheme = extendTheme({
       body: {
         fontFamily: "'Open Sans', sans-serif",
         background: props.colorMode === "light" ? "#fafafa" : "gray.800",
-        color: props.colorMode === "light" ? "gray.800" : "#fafafa",
+        color: props.colorMode === "light" ? "gray.700" : "#fafafa",
       },
     }),
   },

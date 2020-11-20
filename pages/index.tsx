@@ -17,7 +17,7 @@ import Header from "../components/Header";
 import Menu from "../components/Menu";
 import Projects from "../components/Projects";
 import Work from "../components/Work";
-import { debounce } from "../utils/debounce";
+import { debounce } from "../components/helpers";
 
 function App(): JSX.Element {
   const [showHeader, setShowHeader] = useState(false);
@@ -119,10 +119,5 @@ function SolidDivider(): JSX.Element {
     <Divider border="1px solid black" borderColor={borderColor} opacity={1} />
   );
 }
-// export type Procedure = (...args: any[]) => void;
 
-// function debounce(method: any, delay: number) {
-//   clearTimeout(method._timeout);
-//   method._timeout = setTimeout(() => method(), delay);
-// }
 export default App;

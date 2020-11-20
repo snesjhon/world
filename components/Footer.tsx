@@ -22,7 +22,10 @@ function Footer(): JSX.Element {
       <Divider border="1px solid black" borderColor="black" opacity={1} />
       <Center py={4}>
         <Text fontSize="xs" color="gray.600">
-          Designed & Coded by RedOak Studios
+          Designed & Coded by{" "}
+          <Text as="span" color="red.600">
+            RedOak Studios
+          </Text>
         </Text>
       </Center>
     </>

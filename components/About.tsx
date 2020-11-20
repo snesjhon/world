@@ -1,6 +1,8 @@
 import {
+  border,
   Box,
   Button,
+  Divider,
   Flex,
   Heading,
   IconProps,
@@ -47,7 +49,6 @@ function About(): JSX.Element {
               position: "absolute",
               top: afterItemTop,
               right: afterItemRight,
-              // backgroundColor: "#fafafa",
               backgroundColor: borderColor,
               padding: 2,
               zIndex: 1,
@@ -58,6 +59,7 @@ function About(): JSX.Element {
               border="1px solid"
               borderColor="gray.300"
               css={{ filter: "grayscale(1)" }}
+              borderRadius="5px"
             />
           </Box>
         </Box>
@@ -98,6 +100,13 @@ function About(): JSX.Element {
             <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
           </SimpleGrid>
         </Box>
+        <Divider
+          as="div"
+          orientation="vertical"
+          height="auto"
+          borderColor={!borderColor + ""}
+          opacity={1}
+        />
         <Box>
           <Text pb={10} fontSize="lg" fontWeight="bold">
             Languages
@@ -125,10 +134,12 @@ function AboutIcon({
   IconCmpt: FunctionComponent<IconProps>;
   text: string;
 }) {
+  const iconColor = useColorModeValue("gray.900", "#fafafa");
+  const textColor = useColorModeValue("gray.600", "gray.400");
   return (
     <Box textAlign="center">
-      <IconCmpt color="gray.900" boxSize={12} mb={2} />
-      <Text fontSize="xs" color="gray.600">
+      <IconCmpt color={iconColor} boxSize={12} mb={2} />
+      <Text fontSize="xs" color={textColor}>
         {text}
       </Text>
     </Box>

@@ -3,6 +3,7 @@ import {
   Center,
   Divider,
   Heading,
+  Link,
   SimpleGrid,
   Text,
   useBreakpointValue,
@@ -27,12 +28,14 @@ function Experience(): JSX.Element {
               title="Co-Founder"
               year="2020 - Present"
               company="RedOak"
+              link="https://redoakui.com/"
             />
             <Job
               number={2}
               title="Sr. UI Engineer"
               year="2018 - Present"
               company="conDati"
+              link="https://www.condati.com/"
             />
           </Box>
         </Box>
@@ -43,18 +46,21 @@ function Experience(): JSX.Element {
               title="Software Engineer II"
               year="2017 - 2018"
               company="Akamai"
+              link="https://www.akamai.com/"
             />
             <Job
               number={4}
               title="Software Engineer"
               year="2015 - 2017"
               company="SOASTA"
+              link="https://www.akamai.com/us/en/products/performance/mpulse-real-user-monitoring.jsp"
             />
             <Job
               number={5}
               title="Web Developer"
               year="2012 - 2015"
               company="Hawk Ridge Systems"
+              link="https://hawkridgesys.com/"
             />
           </Box>
         </Box>
@@ -67,11 +73,13 @@ function Job({
   number,
   company,
   title,
+  link,
 }: {
   year: string;
   number: number;
   company: string;
   title: string;
+  link: string;
 }) {
   return (
     <SimpleGrid columns={2}>
@@ -96,10 +104,10 @@ function Job({
       >
         <Text fontSize="sm">{year}</Text>
       </Box>
-      <Box pt={10} pb={20} pl={10}>
-        <Text fontSize="sm" color="grey">
+      <Box pt={9} pb={20} pl={10}>
+        <Link href={link} isExternal fontSize="sm" color="grey">
           {`0${number}. ${company}`}
-        </Text>
+        </Link>
         <Text fontSize="lg" fontWeight="bold">
           {title}
         </Text>

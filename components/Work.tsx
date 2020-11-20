@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Divider,
   Flex,
   Heading,
@@ -15,22 +16,95 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-function Work(): JSX.Element {
-  const [isOpen, setIsOpen] = useState("");
+interface Work {
+  title: string;
+  year: string;
+  tags: string[];
+  description: string;
+  imgArr: string[];
+  type: string[];
+}
 
+const workInfo: Work[] = [
+  {
+    title: "conDati",
+    year: "2018 - current",
+    tags: ["Lead UI Developer", "Infrastructure", "Design"],
+    description:
+      "Apply AI and Machine Learning algorithms to build analytic solutions that transform massive volumes of customer, event, and transaction data into accessible dashboards, alerts and automatic reports",
+    imgArr: ["asd", "asdasd"],
+    type: ["JavaScript", "Python", "React", "Redux"],
+  },
+  {
+    title: "Akamai mPulse",
+    year: "2017 - 2018",
+    tags: ["UI Developer", "Design"],
+    description:
+      "Get granular visibility into how end users perceive performance, and take action against third-party resources that are slowing you down. Maximize your business outcomes by prioritizing enhancements that matter.",
+    imgArr: ["asd", "asda"],
+    type: ["JavaScript", "React", "Java", "Redux", "Java"],
+  },
+  {
+    title: "SOASTA",
+    year: "2015 - 2017",
+    tags: ["Lead Designer", "Wordpress Developer"],
+    description:
+      "Cloud-based testing services, and created a browser-based website testing product. Website tests include load testing, software performance testing, functional testing and user interface testing.",
+    imgArr: ["asd", "asda"],
+    type: ["JavaScript", "Wordpress"],
+  },
+  {
+    title: "Hawk Ridge Systems",
+    year: "2013 - 2015",
+    tags: ["UI Developer", "Design"],
+    description: "asdasd",
+    imgArr: ["asd", "asda"],
+    type: ["Wordpress"],
+  },
+  {
+    title: "CrossFit Endgame",
+    year: "2014",
+    tags: ["Lead UI Developer", "Lead Designer"],
+    description: "asdasd",
+    imgArr: ["Lead Designer", "Lead UI Developer"],
+    type: ["Wordpress"],
+  },
+];
+
+function Work(): JSX.Element {
+  const [isOpen, setIsOpen] = useState(-1);
+  const [workFilter, setWorkFilter] = useState<string>("all");
+  const items = [...new Set(workInfo.map((e) => e.type).flat())];
+  const filteredWork = workInfo.filter((e) =>
+    workFilter === "all" ? e : e.type.includes(workFilter)
+  );
   return (
     <>
-      <Box pt={10} pb={5} textAlign="center">
+      <Box id="portfolio" pt={10} pb={10} textAlign="center">
         <Text fontSize="sm">Portfolio</Text>
-        <Heading size="4xl" fontWeight="light" py={5}>
+        <Heading size="3xl" fontWeight="light" py={5}>
           Selected Work
         </Heading>
         <Flex justifyContent="center">
-          <Text color="cyan.700">All</Text>
-          <Text px={4} color="gray.500">
-            Code
-          </Text>
-          <Text color="gray.500">Non-code</Text>
+          <Button
+            variant="link"
+            size="sm"
+            mr={3}
+            onClick={() => setWorkFilter("all")}
+          >
+            All
+          </Button>
+          {items.map((e) => (
+            <Button
+              variant="link"
+              key={e}
+              size="sm"
+              mr={3}
+              onClick={() => setWorkFilter(e)}
+            >
+              {e}
+            </Button>
+          ))}
         </Flex>
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
@@ -38,48 +112,22 @@ function Work(): JSX.Element {
         display={{ base: "block", sm: "block", md: "grid" }}
         gridTemplateColumns={{ md: "1fr 1fr" }}
       >
-        <WorkItem
-          br
-          title="conDati"
-          year="2018 - current"
-          tags={["Lead UI Developer", "Infrastructure", "Design"]}
-          onOpen={onOpen}
-        />
-        <WorkItem
-          title="Akamai mPulse"
-          year="2017 - 2018"
-          tags={["UI Developer", "Design"]}
-          onOpen={onOpen}
-        />
+        {filteredWork.map(({ title, year, tags }, i) => (
+          <WorkItem
+            br={i % 2 === 0}
+            last={i > 1 && i === filteredWork.length - 1}
+            key={title + year}
+            index={i}
+            title={title}
+            year={year}
+            tags={tags}
+            onOpen={onOpen}
+          />
+        ))}
       </Box>
-      <Box
-        display={{ base: "block", sm: "block", md: "grid" }}
-        gridTemplateColumns={{ md: "1fr 1fr" }}
-      >
-        <WorkItem
-          br
-          title="SOASTA"
-          year="2015 - 2017"
-          tags={["Lead Designer", "Wordpress Developer"]}
-          onOpen={onOpen}
-        />
-        <WorkItem
-          title="Hawk Ridge Systems"
-          year="2013 - 2015"
-          tags={["UI Developer", "Design"]}
-          onOpen={onOpen}
-        />
-      </Box>
-      <WorkItem
-        title="CrossFit Endgame"
-        year="2014"
-        tags={["Lead Designer", "Lead UI Developer"]}
-        onOpen={onOpen}
-        last
-      />
       <Modal
-        isOpen={isOpen !== ""}
-        onClose={() => setIsOpen("")}
+        isOpen={isOpen !== -1}
+        onClose={() => setIsOpen(-1)}
         isCentered
         size="xl"
       >
@@ -87,97 +135,56 @@ function Work(): JSX.Element {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-            {isOpen === "conDati" && (
-              <WorkModal
-                company={isOpen}
-                description="something something something"
-                imgArr={["asd", "asd"]}
-                tech={["asd", "asd"]}
-                title="UI Developer"
-              />
-            )}
-            {isOpen === "Akamai mPulse" && (
-              <WorkModal
-                company={isOpen}
-                description="something something something"
-                imgArr={["asd", "asd"]}
-                tech={["asd", "asd"]}
-                title="UI Developer"
-              />
-            )}
-            {isOpen === "SOASTA" && (
-              <WorkModal
-                company={isOpen}
-                description="something something something"
-                imgArr={["asd", "asd"]}
-                tech={["asd", "asd"]}
-                title="UI Developer"
-              />
-            )}
-            {isOpen === "Hawk Ridge Systems" && (
-              <WorkModal
-                company={isOpen}
-                description="something something something"
-                imgArr={["asd", "asd"]}
-                tech={["asd", "asd"]}
-                title="UI Developer"
-              />
-            )}
-            {isOpen === "CrossFit Endgame" && (
-              <WorkModal
-                company={isOpen}
-                description="something something something"
-                imgArr={["asd", "asd"]}
-                tech={["asd", "asd"]}
-                title="UI Developer"
-              />
-            )}
+            <WorkModal item={workInfo[isOpen]} />
           </ModalBody>
         </ModalContent>
       </Modal>
     </>
   );
-  function onOpen(id: string) {
+  function onOpen(id: number) {
     return setIsOpen(id);
   }
 }
 
 function WorkItem({
+  title,
   br,
   last,
-  title,
   year,
   tags,
   onOpen,
+  index,
 }: {
-  br?: boolean;
-  last?: boolean;
   title: string;
+  br: boolean;
+  last: boolean;
   year: string;
+  index: number;
   tags: string[];
-  onOpen: (id: string) => void;
+  onOpen: (id: number) => void;
 }): JSX.Element {
   const borderRight = useBreakpointValue({ md: "1px solid black" });
   return (
     <Flex
-      borderRight={br ? borderRight : undefined}
+      borderRight={br && !last ? borderRight : undefined}
       borderBottom={last ? undefined : "1px solid black"}
       justifyContent="center"
+      gridColumn={last ? "span 2" : undefined}
     >
       <Flex p={10} flexDirection="column">
         <Image
           src="https://via.placeholder.com/400x250"
-          onClick={() => onOpen(title)}
+          onClick={() => onOpen(index)}
         />
         <Flex py={8} justifyContent="space-between">
-          <Heading size="lg" color="gray.700">
-            {title}
-          </Heading>
+          <Heading size="lg">{title}</Heading>
           <Text color="gray.700">({year})</Text>
         </Flex>
-        <Flex justifyContent="space-evenly" marginTop="auto">
+        <Flex marginTop="auto">
           {tags.map((e) => (
-            <Tag key={e}>{e}</Tag>
+            <Tag key={e} mr={3}>
+              {e}
+            </Tag>
           ))}
         </Flex>
       </Flex>
@@ -185,24 +192,13 @@ function WorkItem({
   );
 }
 
-function WorkModal({
-  imgArr,
-  title,
-  company,
-  description,
-  tech,
-}: {
-  imgArr: string[];
-  title: string;
-  company: string;
-  description: string;
-  tech: string[];
-}) {
+function WorkModal({ item }: { item: Work }) {
+  const { title, description, tags } = item;
   return (
     <Flex>
       <Box pr={4} borderRight="1px solid" borderColor="black">
         <Flex justifyContent="space-between">
-          <Heading>{company}</Heading>
+          <Heading>{title}</Heading>
           <Text>{title}</Text>
         </Flex>
         <Text>{description}</Text>
@@ -210,7 +206,7 @@ function WorkModal({
       <Box>
         <Text fontSize="lg">Technologies</Text>
         <Flex>
-          {tech.map((e) => (
+          {tags.map((e) => (
             <Text key={e}>{e}</Text>
           ))}
         </Flex>
