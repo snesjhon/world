@@ -17,7 +17,7 @@ function Footer(): JSX.Element {
           <br /> so if you would like to reach out or simply say hi, my inbox is
           always open!
         </Text>
-        <Button colorScheme="cyan">Send me a message</Button>
+        <Button variant="cyan700">Send me a message</Button>
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
       <Center py={4}>

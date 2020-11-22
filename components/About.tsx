@@ -79,9 +79,7 @@ function About(): JSX.Element {
           <Text>A forever student I have a strong</Text>
           <Text>A forever student I have a strong</Text>
           <Text pb={10}>A forever student I have a strong</Text>
-          <Button bg="cyan.700" color="white">
-            Get in touch
-          </Button>
+          <Button variant="cyan700">Get in touch</Button>
         </Box>
       </Box>
       <Flex py={10} justifyContent="space-between">

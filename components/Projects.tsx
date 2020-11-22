@@ -11,9 +11,56 @@ import {
   Button,
   Icon,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 
+interface ProjectProps {
+  tags: string[];
+  title: string;
+  description: string;
+  link: string;
+  img: string;
+  type: "code" | "non";
+}
+const projectItems: ProjectProps[] = [
+  {
+    tags: ["Data Visualization", "Final Project"],
+    title: "My Music",
+    description:
+      "My Data Visualization Final Project about my iTunes Music Data created using Observable",
+    link: "https://google.com",
+    img: "https://google.com",
+    type: "code",
+  },
+  {
+    tags: ["npm Package", "Markdown"],
+    title: "singlemd",
+    description: "Make a website with just a single Markdown file",
+    link: "https://google.com",
+    img: "https://google.com",
+    type: "code",
+  },
+  {
+    tags: ["Personal", "Youtube"],
+    title: "1 Second Every Day",
+    description:
+      "Imagine a movie that includes every day of the rest of your life.",
+    link: "https://google.com",
+    img: "https://google.com",
+    type: "non",
+  },
+  {
+    tags: ["Music", "Lists"],
+    title: "RS 500",
+    description: "My ongoing list of Rolling Stone's 500 Best Albums",
+    link: "https://google.com",
+    img: "https://google.com",
+    type: "non",
+  },
+];
 function Projects(): JSX.Element {
+  const [currentActive, setCurrentActive] = useState<
+    ProjectProps["type"] | "all"
+  >("all");
   return (
     <>
       <Box
@@ -31,42 +78,37 @@ function Projects(): JSX.Element {
           </Heading>
         </Box>
         <Flex justifyContent="center" pl={10}>
-          <Text color="cyan.700">All</Text>
-          <Text px={4} color="gray.500">
+          <Button
+            variant={currentActive === "all" ? "cyan700" : "ghostCyan"}
+            onClick={() => setCurrentActive("all")}
+            size="sm"
+          >
+            All
+          </Button>
+          <Button
+            variant={currentActive === "code" ? "cyan700" : "ghostCyan"}
+            onClick={() => setCurrentActive("code")}
+            size="sm"
+          >
             Code
-          </Text>
-          <Text color="gray.500">Non-code</Text>
+          </Button>
+          <Button
+            variant={currentActive === "noncode" ? "cyan700" : "ghostCyan"}
+            onClick={() => setCurrentActive("noncode")}
+            size="sm"
+          >
+            Non-code
+          </Button>
         </Flex>
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
-      <ProjectItem
-        description="My Data Visualization Final Project about my iTunes Music Data created using Observable"
-        img="https://via.placeholder.com/400x250"
-        link="https://google.com"
-        tags={["Data Visualization", "Final Project"]}
-        title="My Music"
-      />
-      <ProjectItem
-        description="Make a website with just a single Markdown file"
-        img="https://via.placeholder.com/400x250"
-        link="https://google.com"
-        tags={["npm package", "markdown"]}
-        title="singlemd"
-      />
-      <ProjectItem
-        description="Imagine a movie that includes every day of the rest of your life."
-        img="https://via.placeholder.com/400x250"
-        link="https://google.com"
-        tags={["personal", "youtube"]}
-        title="1 Second Every Day"
-      />
-      <ProjectItem
-        description="My ongoing list of Rolling Stone's 500 Best Albums"
-        img="https://via.placeholder.com/400x250"
-        link="https://google.com"
-        tags={["music", "lists"]}
-        title="RS 500"
-      />
+      {projectItems
+        .filter((e) =>
+          currentActive === "all" ? e : e.type.includes(currentActive)
+        )
+        .map((e) => (
+          <ProjectItem key={e.title} {...e} />
+        ))}
     </>
   );
 }
@@ -77,13 +119,7 @@ function ProjectItem({
   description,
   link,
   img,
-}: {
-  tags: string[];
-  title: string;
-  description: string;
-  link: string;
-  img: string;
-}): JSX.Element {
+}: ProjectProps): JSX.Element {
   return (
     <>
       <Grid
@@ -118,11 +154,9 @@ function ProjectItem({
           </Box>
           <Box>
             <Button
-              variant="link"
-              as={Link}
               href={link}
-              size="sm"
-              isExternal
+              variant="linkCyan"
+              as="a"
               rightIcon={<ExternalLinkIcon />}
             >
               View Project

@@ -6,7 +6,7 @@ function Menu(): JSX.Element {
   return (
     <Flex justifyContent="space-between">
       <Button
-        variant="ghost"
+        variant="ghostCyan"
         fontWeight="md"
         onClick={() =>
           document
@@ -17,7 +17,7 @@ function Menu(): JSX.Element {
         Portfolio
       </Button>
       <Button
-        variant="ghost"
+        variant="ghostCyan"
         fontWeight="md"
         onClick={() =>
           document
@@ -31,7 +31,7 @@ function Menu(): JSX.Element {
         as="a"
         href="/resume.pdf"
         target="_blank"
-        variant="ghost"
+        variant="ghostCyan"
         fontWeight="light"
         rightIcon={<ExternalLinkIcon />}
       >
@@ -41,7 +41,7 @@ function Menu(): JSX.Element {
         icon={colorMode === "light" ? <SunIcon /> : <MoonIcon />}
         aria-label="Theme Toggle"
         onClick={toggleColorMode}
-        variant="ghost"
+        variant="ghostCyan"
       />
     </Flex>
   );

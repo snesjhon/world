@@ -87,20 +87,19 @@ function Work(): JSX.Element {
         </Heading>
         <Flex justifyContent="center">
           <Button
-            variant="link"
+            variant={workFilter === "all" ? "cyan700" : "ghostCyan"}
             size="sm"
-            mr={3}
             onClick={() => setWorkFilter("all")}
           >
             All
           </Button>
           {items.map((e) => (
             <Button
-              variant="link"
+              variant={workFilter === e ? "cyan700" : "ghostCyan"}
               key={e}
               size="sm"
-              mr={3}
               onClick={() => setWorkFilter(e)}
+              colorScheme={workFilter === e ? "cyan" : undefined}
             >
               {e}
             </Button>
@@ -115,7 +114,11 @@ function Work(): JSX.Element {
         {filteredWork.map(({ title, year, tags }, i) => (
           <WorkItem
             br={i % 2 === 0}
-            last={i > 1 && i === filteredWork.length - 1}
+            bb={filteredWork.length === 2}
+            last={
+              (i > 1 && i === filteredWork.length - 1) ||
+              filteredWork.length === 1
+            }
             key={title + year}
             index={i}
             title={title}
@@ -149,6 +152,7 @@ function Work(): JSX.Element {
 function WorkItem({
   title,
   br,
+  bb,
   last,
   year,
   tags,
@@ -157,6 +161,7 @@ function WorkItem({
 }: {
   title: string;
   br: boolean;
+  bb: boolean;
   last: boolean;
   year: string;
   index: number;
@@ -167,7 +172,7 @@ function WorkItem({
   return (
     <Flex
       borderRight={br && !last ? borderRight : undefined}
-      borderBottom={last ? undefined : "1px solid black"}
+      borderBottom={last || bb ? undefined : "1px solid black"}
       justifyContent="center"
       gridColumn={last ? "span 2" : undefined}
     >
@@ -176,13 +181,15 @@ function WorkItem({
           src="https://via.placeholder.com/400x250"
           onClick={() => onOpen(index)}
         />
-        <Flex py={8} justifyContent="space-between">
+        <Flex py={8} justifyContent="space-between" alignItems="baseline">
           <Heading size="lg">{title}</Heading>
-          <Text color="gray.700">({year})</Text>
+          <Text color="gray.700" fontSize="sm">
+            ({year})
+          </Text>
         </Flex>
         <Flex marginTop="auto">
-          {tags.map((e) => (
-            <Tag key={e} mr={3}>
+          {tags.map((e, i) => (
+            <Tag key={e} mr={3} bg={`cyan.${9 - i}00`} color="white">
               {e}
             </Tag>
           ))}

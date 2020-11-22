@@ -14,7 +14,7 @@ function Experience(): JSX.Element {
   const headerSize = useBreakpointValue({ base: "3xl", xs: "4xl" });
   return (
     <>
-      <Box pt={10} pb={5}>
+      <Box py={10}>
         <Center>
           <Heading size={headerSize}>Experience</Heading>
         </Center>

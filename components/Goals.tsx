@@ -35,7 +35,7 @@ function Goals(): JSX.Element {
         <Box>
           <Text
             textAlign="center"
-            fontWeight="bold"
+            fontWeight={800}
             borderBottom={{ md: "2px solid black" }}
             pb={2}
           >
