@@ -79,7 +79,7 @@ function Goals(): JSX.Element {
                 pb={2}
                 key={e}
                 _before={{
-                  content: "'+'",
+                  content: "'✓'",
                   position: "absolute",
                   marginLeft: "-4%",
                 }}

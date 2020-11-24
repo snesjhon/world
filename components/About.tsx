@@ -1,5 +1,4 @@
 import {
-  border,
   Box,
   Button,
   Divider,
@@ -14,8 +13,17 @@ import {
 } from "@chakra-ui/react";
 import React, { FunctionComponent } from "react";
 import ChakraIcon from "./Icons/ChakraIcon";
+import DockerIcon from "./Icons/DockerIcon";
+import FirebaseIcon from "./Icons/FirebaseLogo";
+import HTMLIcon from "./Icons/HTMLIcon";
+import JSIcon from "./Icons/JSIcon";
+import PythonIcon from "./Icons/PythonIcon";
 import ReactIcon from "./Icons/ReactIcon";
 import ReduxIcon from "./Icons/ReduxIcon";
+import TSIcon from "./Icons/TSIcon";
+import WebflowIcon from "./Icons/WebflowIcon";
+import WebpackIcon from "./Icons/WebpackIcon";
+import WordpressIcon from "./Icons/WordpressIcon";
 
 function About(): JSX.Element {
   const beforeItem = useBreakpointValue({ base: 0, sm: "-5%", md: "-15%" });
@@ -28,8 +36,14 @@ function About(): JSX.Element {
   const borderColor = useColorModeValue("#fafafa", "gray.800");
   return (
     <Box px={{ base: 5, sm: 10, lg: 20 }}>
-      <Box display={{ md: "flex" }} justifyContent="space-between" py={20}>
-        <Box maxW={{ md: "40%" }} mr={10}>
+      <Box
+        display={{ md: "grid" }}
+        justifyContent="space-between"
+        py={20}
+        gridGap={{ md: "6rem", lg: "8rem" }}
+        gridTemplateColumns={{ md: "1fr 1fr" }}
+      >
+        <Box mr={10}>
           <Box
             position="relative"
             _before={{
@@ -63,7 +77,7 @@ function About(): JSX.Element {
             />
           </Box>
         </Box>
-        <Box pt={20} pl={{ base: 6, sm: 10, md: 0 }}>
+        <Box pt={{ base: 20, md: 10, lg: 20 }} pl={{ base: 6, sm: 10, md: 0 }}>
           <Box pb={10}>
             <Heading size="xl" mb={4}>
               Software Engineer
@@ -76,9 +90,12 @@ function About(): JSX.Element {
               Music Enthusiast
             </Heading>
           </Box>
-          <Text>A forever student I have a strong</Text>
-          <Text>A forever student I have a strong</Text>
-          <Text pb={10}>A forever student I have a strong</Text>
+          <Text>
+            I specialize in creating and maintaining complex UI infrastructure.
+            Oh yea, I also collect vinyls and love learning new things on
+            youtube at 4am.
+          </Text>
+          <br />
           <Button variant="cyan700">Get in touch</Button>
         </Box>
       </Box>
@@ -88,21 +105,21 @@ function About(): JSX.Element {
             Technologies
           </Text>
           <SimpleGrid columns={{ sm: 2, md: 4 }} gap={10}>
-            <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
             <AboutIcon IconCmpt={ReactIcon} text="React" />
             <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
             <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
-            <AboutIcon IconCmpt={ReactIcon} text="React" />
-            <AboutIcon IconCmpt={ReactIcon} text="React" />
-            <AboutIcon IconCmpt={ReactIcon} text="React" />
-            <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
+            <AboutIcon IconCmpt={WebpackIcon} text="Webpack" />
+            <AboutIcon IconCmpt={WordpressIcon} text="Wordpress" />
+            <AboutIcon IconCmpt={WebflowIcon} text="Webflow" />
+            <AboutIcon IconCmpt={DockerIcon} text="Docker" />
+            <AboutIcon IconCmpt={FirebaseIcon} text="Firebase" />
           </SimpleGrid>
         </Box>
         <Divider
           as="div"
           orientation="vertical"
           height="auto"
-          borderColor={!borderColor + ""}
+          borderColor={borderColor}
           opacity={1}
         />
         <Box>
@@ -110,14 +127,12 @@ function About(): JSX.Element {
             Languages
           </Text>
           <SimpleGrid columns={{ sm: 2, md: 4 }} gap={10}>
-            <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
-            <AboutIcon IconCmpt={ReactIcon} text="React" />
-            <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
-            <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
-            <AboutIcon IconCmpt={ReactIcon} text="React" />
-            <AboutIcon IconCmpt={ReactIcon} text="React" />
-            <AboutIcon IconCmpt={ReactIcon} text="React" />
-            <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
+            <AboutIcon IconCmpt={JSIcon} text="JavaScript" />
+            <AboutIcon IconCmpt={TSIcon} text="TypeScript" />
+            <AboutIcon IconCmpt={PythonIcon} text="Python" />
+            <AboutIcon IconCmpt={HTMLIcon} text="HTML" />
+            <AboutIcon IconCmpt={ChakraIcon} text="CSS" />
+            <AboutIcon IconCmpt={ReactIcon} text="SQL" />
           </SimpleGrid>
         </Box>
       </Flex>

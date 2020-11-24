@@ -7,6 +7,8 @@ import {
   useColorModeValue,
   VStack,
   Heading,
+  IconButton,
+  Fade,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import About from "../components/About";
@@ -18,6 +20,10 @@ import Menu from "../components/Menu";
 import Projects from "../components/Projects";
 import Work from "../components/Work";
 import { debounce } from "../components/helpers";
+import GithubIcon from "../components/Icons/GithubIcon";
+import { ArrowUpIcon } from "@chakra-ui/icons";
+import InstagramIcon from "../components/Icons/InstagramIcon";
+import TwitterIcon from "../components/Icons/TwitterIcon";
 
 function App(): JSX.Element {
   const [showHeader, setShowHeader] = useState(false);
@@ -47,25 +53,65 @@ function App(): JSX.Element {
       >
         <VStack
           position="fixed"
-          bottom="50%"
+          bottom="30%"
           ml="-5%"
           display={{ sm: "none", xl: "block" }}
         >
-          <Box>asdin</Box>
-          <Box>asdin</Box>
-          <Box>asdin</Box>
-          <Box>asdin</Box>
+          <Box>
+            <IconButton
+              as="a"
+              aria-label="github"
+              variant="ghost"
+              icon={<GithubIcon boxSize={8} color="cyan.700" />}
+              href="https://google.com"
+              target="_blank"
+            />
+          </Box>
+          <Box>
+            <IconButton
+              as="a"
+              aria-label="github"
+              variant="ghost"
+              icon={<InstagramIcon boxSize={8} color="cyan.700" />}
+              href="https://google.com"
+              target="_blank"
+            />
+          </Box>
+          <Box>
+            <IconButton
+              as="a"
+              aria-label="github"
+              variant="ghost"
+              icon={<TwitterIcon boxSize={8} color="cyan.700" />}
+              href="https://google.com"
+              target="_blank"
+            />
+          </Box>
         </VStack>
         <Box position="absolute" right="0">
           <VStack
             position="fixed"
-            bottom="5%"
+            bottom="30%"
             display={{ sm: "none", xl: "block" }}
           >
-            <Box>asdin</Box>
-            <Box>asdin</Box>
-            <Box>asdin</Box>
-            <Box>asdin</Box>
+            <Box>
+              <Fade in={showHeader}>
+                <IconButton
+                  icon={<ArrowUpIcon />}
+                  aria-label="Up Icon"
+                  border="1px solid"
+                  variant="ghost"
+                  color="cyan.700"
+                  boxSize={10}
+                  onClick={() =>
+                    document.documentElement.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })
+                  }
+                />
+              </Fade>
+            </Box>
           </VStack>
         </Box>
         <Box border="2px solid" borderColor={borderColor}>
