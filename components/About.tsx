@@ -71,7 +71,7 @@ function About(): JSX.Element {
             }}
           >
             <Image
-              src="/images/avatar.jpg"
+              src="/images/myavatar.jpg"
               border="1px solid"
               borderColor="gray.300"
               css={{ filter: "grayscale(1)" }}
