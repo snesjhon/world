@@ -6,8 +6,8 @@ import {
   Flex,
   Grid,
   Heading,
-  Link,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -62,6 +62,7 @@ function Projects(): JSX.Element {
   const [currentActive, setCurrentActive] = useState<
     ProjectProps["type"] | "all"
   >("all");
+  const btnSize = useBreakpointValue({ base: "xs", sm: "sm" });
   return (
     <>
       <Box
@@ -82,21 +83,21 @@ function Projects(): JSX.Element {
           <Button
             variant={currentActive === "all" ? "cyan700" : "ghostCyan"}
             onClick={() => setCurrentActive("all")}
-            size="sm"
+            size={btnSize}
           >
             All
           </Button>
           <Button
             variant={currentActive === "code" ? "cyan700" : "ghostCyan"}
             onClick={() => setCurrentActive("code")}
-            size="sm"
+            size={btnSize}
           >
             Code
           </Button>
           <Button
             variant={currentActive === "non" ? "cyan700" : "ghostCyan"}
             onClick={() => setCurrentActive("non")}
-            size="sm"
+            size={btnSize}
           >
             Non-code
           </Button>

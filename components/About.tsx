@@ -28,13 +28,21 @@ import WebpackIcon from "./Icons/WebpackIcon";
 import WordpressIcon from "./Icons/WordpressIcon";
 
 function About(): JSX.Element {
-  const beforeItem = useBreakpointValue({ base: 0, sm: "-5%", md: "-15%" });
+  const beforeItem = useBreakpointValue({
+    base: "-10%",
+    sm: "-5%",
+    md: "-15%",
+  });
   const afterItemTop = useBreakpointValue({
-    base: "-8%",
+    base: "-10%",
     sm: "-8%",
     md: "45%",
   });
-  const afterItemRight = useBreakpointValue({ base: 0, sm: 0, md: "-30%" });
+  const afterItemRight = useBreakpointValue({
+    base: 0,
+    sm: 0,
+    md: "-30%",
+  });
   const borderColor = useColorModeValue("#fafafa", "gray.800");
   return (
     <Box px={{ base: 5, sm: 10, lg: 20 }}>
@@ -74,8 +82,10 @@ function About(): JSX.Element {
               src="/images/myavatar.jpg"
               border="1px solid"
               borderColor="gray.300"
-              css={{ filter: "grayscale(1)" }}
+              sx={{ filter: "grayscale(1)" }}
+              zIndex={3}
               borderRadius="5px"
+              position="relative"
             />
           </Box>
         </Box>
@@ -110,10 +120,10 @@ function About(): JSX.Element {
       </Box>
       <Flex py={10} justifyContent="space-between">
         <Box>
-          <Text pb={10} fontSize="lg" fontWeight="bold">
+          <Text pb={{ base: 5, sm: 10 }} fontSize="lg" fontWeight="bold">
             Technologies
           </Text>
-          <SimpleGrid columns={{ sm: 2, md: 4 }} gap={10}>
+          <SimpleGrid columns={{ base: 2, md: 4 }} gap={{ base: 3, sm: 10 }}>
             <AboutIcon IconCmpt={ReactIcon} text="React" />
             <AboutIcon IconCmpt={ReduxIcon} text="Redux" />
             <AboutIcon IconCmpt={ChakraIcon} text="Chakra UI" />
@@ -132,10 +142,10 @@ function About(): JSX.Element {
           opacity={1}
         />
         <Box>
-          <Text pb={10} fontSize="lg" fontWeight="bold">
+          <Text pb={{ base: 5, sm: 10 }} fontSize="lg" fontWeight="bold">
             Languages
           </Text>
-          <SimpleGrid columns={{ sm: 2, md: 4 }} gap={10}>
+          <SimpleGrid columns={{ base: 2, md: 4 }} gap={{ base: 3, sm: 10 }}>
             <AboutIcon IconCmpt={JavaScriptIcon} text="JavaScript" />
             <AboutIcon IconCmpt={TypeScriptIcon} text="TypeScript" />
             <AboutIcon IconCmpt={PythonIcon} text="Python" />
@@ -160,7 +170,7 @@ function AboutIcon({
   const textColor = useColorModeValue("gray.600", "gray.400");
   return (
     <Box textAlign="center">
-      <IconCmpt color={iconColor} boxSize={12} mb={2} />
+      <IconCmpt color={iconColor} boxSize={{ base: 10, md: 12 }} mb={2} />
       <Text fontSize="xs" color={textColor}>
         {text}
       </Text>
