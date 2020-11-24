@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, IconProps } from "@chakra-ui/react";
 
-function JSIcon(props: IconProps): JSX.Element {
+function JavaScriptIcon(props: IconProps): JSX.Element {
   return (
     <Icon viewBox="0 0 45 45" {...props}>
       <path
@@ -12,4 +12,4 @@ function JSIcon(props: IconProps): JSX.Element {
   );
 }
 
-export default JSIcon;
+export default JavaScriptIcon;

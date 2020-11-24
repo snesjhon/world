@@ -1,4 +1,12 @@
-import { Box, Button, Center, Divider, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Divider,
+  Heading,
+  Link,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 
 function Footer(): JSX.Element {
@@ -17,15 +25,22 @@ function Footer(): JSX.Element {
           <br /> so if you would like to reach out or simply say hi, my inbox is
           always open!
         </Text>
-        <Button variant="cyan700">Send me a message</Button>
+        <Button
+          as="a"
+          href="mailto:someone@yoursite.com?subject=Mail from Our Site"
+          target="_blank"
+          variant="cyan700"
+        >
+          Send me a message
+        </Button>
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
       <Center py={4}>
         <Text fontSize="xs" color="gray.600">
           Designed & Coded by{" "}
-          <Text as="span" color="red.600">
+          <Link href="https://redoakui.com" target="_blank" color="red.600">
             RedOak Studios
-          </Text>
+          </Link>
         </Text>
       </Center>
     </>

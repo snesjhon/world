@@ -1,8 +1,7 @@
-import { ExternalLinkIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { Button, Flex, IconButton, Link, useColorMode } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { Button, Flex } from "@chakra-ui/react";
 import React from "react";
 function Menu(): JSX.Element {
-  const { toggleColorMode, colorMode } = useColorMode();
   return (
     <Flex justifyContent="space-between">
       <Button
@@ -37,12 +36,6 @@ function Menu(): JSX.Element {
       >
         Resume
       </Button>
-      <IconButton
-        icon={colorMode === "light" ? <SunIcon /> : <MoonIcon />}
-        aria-label="Theme Toggle"
-        onClick={toggleColorMode}
-        variant="ghostCyan"
-      />
     </Flex>
   );
 }

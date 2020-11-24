@@ -19,6 +19,12 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState } from "react";
+import JavaScriptIcon from "./Icons/JavaScriptIcon";
+import TypeScriptIcon from "./Icons/TypeScriptIcon";
+import PythonIcon from "./Icons/PythonIcon";
+import WordpressIcon from "./Icons/WordpressIcon";
+import ReduxIcon from "./Icons/ReduxIcon";
+import ReactIcon from "./Icons/ReactIcon";
 
 interface Work {
   title: string;
@@ -43,7 +49,7 @@ const workInfo: Work[] = [
       "/images/condati2.jpg",
       "/images/condati3.jpg",
     ],
-    type: ["JavaScript", "Python", "React", "Redux"],
+    type: ["JavaScript", "TypeScript", "React", "Python", "Redux"],
   },
   {
     company: "Akamai mPulse",
@@ -274,13 +280,29 @@ function WorkModal({ item }: { item: Work }) {
             Technologies
           </Text>
           <Flex>
-            {type.map((e) => (
-              <Text key={e}>{e}</Text>
-            ))}
+            {type.map((e) => {
+              switch (e) {
+                case "JavaScript":
+                  return <JavaScriptIcon boxSize={10} mr={3} />;
+                case "React":
+                  return <ReactIcon boxSize={10} mr={3} />;
+                case "TypeScript":
+                  return <TypeScriptIcon boxSize={10} mr={3} />;
+                case "Python":
+                  return <PythonIcon boxSize={10} mr={3} />;
+                case "Redux":
+                  return <ReduxIcon boxSize={10} mr={3} />;
+                case "Wordpress":
+                  return <WordpressIcon boxSize={10} mr={3} />;
+                default:
+                  return null;
+              }
+            })}
           </Flex>
         </Box>
       </SimpleGrid>
     </Box>
   );
 }
+
 export default Work;

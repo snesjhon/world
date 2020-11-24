@@ -13,14 +13,16 @@ import {
 } from "@chakra-ui/react";
 import React, { FunctionComponent } from "react";
 import ChakraIcon from "./Icons/ChakraIcon";
+import CSSIcon from "./Icons/CSSIcon";
 import DockerIcon from "./Icons/DockerIcon";
 import FirebaseIcon from "./Icons/FirebaseLogo";
 import HTMLIcon from "./Icons/HTMLIcon";
-import JSIcon from "./Icons/JSIcon";
+import JavaScriptIcon from "./Icons/JavaScriptIcon";
 import PythonIcon from "./Icons/PythonIcon";
 import ReactIcon from "./Icons/ReactIcon";
 import ReduxIcon from "./Icons/ReduxIcon";
-import TSIcon from "./Icons/TSIcon";
+import SQLIcon from "./Icons/SQLIcon";
+import TypeScriptIcon from "./Icons/TypeScriptIcon";
 import WebflowIcon from "./Icons/WebflowIcon";
 import WebpackIcon from "./Icons/WebpackIcon";
 import WordpressIcon from "./Icons/WordpressIcon";
@@ -78,7 +80,7 @@ function About(): JSX.Element {
           </Box>
         </Box>
         <Box pt={{ base: 20, md: 10, lg: 20 }} pl={{ base: 6, sm: 10, md: 0 }}>
-          <Box pb={10}>
+          <Box pb={6}>
             <Heading size="xl" mb={4}>
               Software Engineer
             </Heading>
@@ -96,7 +98,14 @@ function About(): JSX.Element {
             youtube at 4am.
           </Text>
           <br />
-          <Button variant="cyan700">Get in touch</Button>
+          <Button
+            as="a"
+            href="mailto:snesjhon@gmail?subject=Hey Jhon Let's Talk"
+            target="_blank"
+            variant="cyan700"
+          >
+            Get in touch
+          </Button>
         </Box>
       </Box>
       <Flex py={10} justifyContent="space-between">
@@ -127,12 +136,12 @@ function About(): JSX.Element {
             Languages
           </Text>
           <SimpleGrid columns={{ sm: 2, md: 4 }} gap={10}>
-            <AboutIcon IconCmpt={JSIcon} text="JavaScript" />
-            <AboutIcon IconCmpt={TSIcon} text="TypeScript" />
+            <AboutIcon IconCmpt={JavaScriptIcon} text="JavaScript" />
+            <AboutIcon IconCmpt={TypeScriptIcon} text="TypeScript" />
             <AboutIcon IconCmpt={PythonIcon} text="Python" />
             <AboutIcon IconCmpt={HTMLIcon} text="HTML" />
-            <AboutIcon IconCmpt={ChakraIcon} text="CSS" />
-            <AboutIcon IconCmpt={ReactIcon} text="SQL" />
+            <AboutIcon IconCmpt={CSSIcon} text="CSS" />
+            <AboutIcon IconCmpt={SQLIcon} text="SQL" />
           </SimpleGrid>
         </Box>
       </Flex>

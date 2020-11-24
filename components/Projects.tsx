@@ -1,16 +1,15 @@
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import Image from "next/image";
 import {
   Box,
-  Heading,
-  Flex,
-  Divider,
-  Text,
-  Link,
-  Grid,
   Button,
-  Icon,
+  Divider,
+  Flex,
+  Grid,
+  Heading,
+  Link,
+  Text,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface ProjectProps {
@@ -27,7 +26,7 @@ const projectItems: ProjectProps[] = [
     title: "My Music",
     description:
       "My Data Visualization Final Project about my iTunes Music Data created using Observable",
-    link: "https://google.com",
+    link: "https://observablehq.com/@snesjhon/my-apple-music-data",
     img: "/images/mymusic.jpg",
     type: "code",
   },
@@ -35,7 +34,7 @@ const projectItems: ProjectProps[] = [
     tags: ["npm Package", "Markdown"],
     title: "singlemd",
     description: "Make a website with just a single Markdown file",
-    link: "https://google.com",
+    link: "https://singlemd.netlify.app/",
     img: "/images/project-singlemd.jpg",
     type: "code",
   },
@@ -44,7 +43,8 @@ const projectItems: ProjectProps[] = [
     title: "1 Second Every Day",
     description:
       "Imagine a movie that includes every day of the rest of your life.",
-    link: "https://google.com",
+    link:
+      "https://www.youtube.com/playlist?list=PLxN1mKPLtPoUFuE9-lFj9I0E_-eo3U2oi",
     img: "/images/project-1sed.jpg",
     type: "non",
   },
@@ -52,7 +52,8 @@ const projectItems: ProjectProps[] = [
     tags: ["Music", "Lists"],
     title: "RS 500",
     description: "My ongoing list of Rolling Stone's 500 Best Albums",
-    link: "https://google.com",
+    link:
+      "https://docs.google.com/spreadsheets/d/1ZfLCreXs221cBq6m8PfdU8863zbTJs54FxKWJs5AsjA/edit?usp=sharing",
     img: "/images/project-rs500.jpg",
     type: "non",
   },
@@ -158,14 +159,24 @@ function ProjectItem({
               variant="linkCyan"
               as="a"
               rightIcon={<ExternalLinkIcon />}
+              target="_blank"
             >
               View Project
             </Button>
           </Box>
         </Flex>
         <Box order={{ base: -1, md: 1 }}>
-          <Box className="nextImg" position="relative">
+          <Box
+            as="a"
+            href={link}
+            className="nextImg"
+            position="relative"
+            display="block"
+            target="_blank"
+          >
+            {/* <Link isExternal href={link}> */}
             <Image src={img} width={1086} height={628} />
+            {/* </Link> */}
           </Box>
         </Box>
       </Grid>

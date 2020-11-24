@@ -60,30 +60,30 @@ function App(): JSX.Element {
           <Box>
             <IconButton
               as="a"
-              aria-label="github"
+              aria-label="Github"
               variant="ghost"
               icon={<GithubIcon boxSize={8} color="cyan.700" />}
-              href="https://google.com"
+              href="https://github.com/snesjhon"
               target="_blank"
             />
           </Box>
           <Box>
             <IconButton
               as="a"
-              aria-label="github"
+              aria-label="Instagram"
               variant="ghost"
               icon={<InstagramIcon boxSize={8} color="cyan.700" />}
-              href="https://google.com"
+              href="https://www.instagram.com/snesjhon/"
               target="_blank"
             />
           </Box>
           <Box>
             <IconButton
               as="a"
-              aria-label="github"
+              aria-label="Twitter"
               variant="ghost"
               icon={<TwitterIcon boxSize={8} color="cyan.700" />}
-              href="https://google.com"
+              href="https://twitter.com/snesjhon"
               target="_blank"
             />
           </Box>
