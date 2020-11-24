@@ -55,7 +55,7 @@ function App(): JSX.Element {
           position="fixed"
           bottom="30%"
           ml="-5%"
-          display={{ sm: "none", xl: "block" }}
+          display={{ base: "none", xl: "block" }}
         >
           <Box>
             <IconButton
@@ -92,7 +92,7 @@ function App(): JSX.Element {
           <VStack
             position="fixed"
             bottom="30%"
-            display={{ sm: "none", xl: "block" }}
+            display={{ base: "none", xl: "block" }}
           >
             <Box>
               <Fade in={showHeader}>

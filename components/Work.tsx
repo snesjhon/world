@@ -94,6 +94,8 @@ const workInfo: Work[] = [
 function Work(): JSX.Element {
   const [isOpen, setIsOpen] = useState(-1);
   const [workFilter, setWorkFilter] = useState<string>("all");
+  const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
+  const modalSize = useBreakpointValue({ base: "full", sm: "5xl" });
   const items = [...new Set(workInfo.map((e) => e.type).flat())];
   const filteredWork = workInfo.filter((e) =>
     workFilter === "all" ? e : e.type.includes(workFilter)
@@ -105,10 +107,10 @@ function Work(): JSX.Element {
         <Heading size="3xl" fontWeight="light" py={5}>
           Selected Work
         </Heading>
-        <Flex justifyContent="center">
+        <Flex justifyContent="center" flexWrap="wrap">
           <Button
             variant={workFilter === "all" ? "cyan700" : "ghostCyan"}
-            size="sm"
+            size={buttonSize}
             onClick={() => setWorkFilter("all")}
           >
             All
@@ -117,7 +119,7 @@ function Work(): JSX.Element {
             <Button
               variant={workFilter === e ? "cyan700" : "ghostCyan"}
               key={e}
-              size="sm"
+              size={buttonSize}
               onClick={() => setWorkFilter(e)}
               colorScheme={workFilter === e ? "cyan" : undefined}
             >
@@ -156,7 +158,7 @@ function Work(): JSX.Element {
         isOpen={isOpen !== -1}
         onClose={() => setIsOpen(-1)}
         isCentered
-        size="5xl"
+        size={modalSize}
       >
         <ModalOverlay />
         <ModalContent>
@@ -192,6 +194,7 @@ function WorkItem({
   onOpen: (id: number) => void;
 }): JSX.Element {
   const borderRight = useBreakpointValue({ md: "1px solid black" });
+  const tagSize = useBreakpointValue({ base: "sm", sm: "md" });
   return (
     <Flex
       borderRight={br && !last ? borderRight : undefined}
@@ -214,7 +217,13 @@ function WorkItem({
         </Flex>
         <Flex marginTop="auto">
           {tags.map((e, i) => (
-            <Tag key={e} mr={3} bg={`cyan.${9 - i}00`} color="white">
+            <Tag
+              key={e}
+              mr={3}
+              bg={`cyan.${9 - i}00`}
+              color="white"
+              size={tagSize}
+            >
               {e}
             </Tag>
           ))}
@@ -263,8 +272,18 @@ function WorkModal({ item }: { item: Work }) {
           }
         />
       </Box>
-      <SimpleGrid templateColumns="1fr 0.5fr" py={4} px={6}>
-        <Box pr={4} borderRight="1px solid" borderColor="black" mr={4}>
+      <SimpleGrid
+        templateColumns={{ sm: "1fr 0.5fr" }}
+        templateRows={{ base: "1fr 1fr", sm: "1fr" }}
+        py={4}
+        px={6}
+      >
+        <Box
+          pr={4}
+          borderRight={{ sm: "1px solid" }}
+          borderColor="black"
+          mr={4}
+        >
           <Flex justifyContent="space-between" alignItems="baseline" mb={2}>
             <Heading color="cyan.700" size="lg">
               {company}
@@ -283,17 +302,17 @@ function WorkModal({ item }: { item: Work }) {
             {type.map((e) => {
               switch (e) {
                 case "JavaScript":
-                  return <JavaScriptIcon boxSize={10} mr={3} />;
+                  return <JavaScriptIcon key={e} boxSize={10} mr={3} />;
                 case "React":
-                  return <ReactIcon boxSize={10} mr={3} />;
+                  return <ReactIcon key={e} boxSize={10} mr={3} />;
                 case "TypeScript":
-                  return <TypeScriptIcon boxSize={10} mr={3} />;
+                  return <TypeScriptIcon key={e} boxSize={10} mr={3} />;
                 case "Python":
-                  return <PythonIcon boxSize={10} mr={3} />;
+                  return <PythonIcon key={e} boxSize={10} mr={3} />;
                 case "Redux":
-                  return <ReduxIcon boxSize={10} mr={3} />;
+                  return <ReduxIcon key={e} boxSize={10} mr={3} />;
                 case "Wordpress":
-                  return <WordpressIcon boxSize={10} mr={3} />;
+                  return <WordpressIcon key={e} boxSize={10} mr={3} />;
                 default:
                   return null;
               }

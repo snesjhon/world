@@ -6,14 +6,16 @@ import {
   Heading,
   Link,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import React from "react";
 
 function Footer(): JSX.Element {
+  const headingSize = useBreakpointValue({ base: "xl", md: "2xl" });
   return (
     <>
       <Box pt={10} pb={5} textAlign="center">
-        <Heading size="2xl">Thanks for Stopping By</Heading>
+        <Heading size={headingSize}>Thanks for Stopping By</Heading>
       </Box>
       <Divider border="1px solid black" borderColor="black" opacity={1} />
       <Box py={20} textAlign="center">
