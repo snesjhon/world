@@ -1,0 +1,308 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Heading,
+  IconButton,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  SimpleGrid,
+  Tag,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import Image from "next/image";
+import React, { useState } from "react";
+import JavaScriptIcon from "./Icons/JavaScriptIcon";
+import TypeScriptIcon from "./Icons/TypeScriptIcon";
+import PythonIcon from "./Icons/PythonIcon";
+import WordpressIcon from "./Icons/WordpressIcon";
+import ReduxIcon from "./Icons/ReduxIcon";
+import ReactIcon from "./Icons/ReactIcon";
+
+interface Work {
+  title: string;
+  company: string;
+  year: string;
+  tags: string[];
+  description: string;
+  imgArr: string[];
+  type: string[];
+}
+
+const workInfo: Work[] = [
+  {
+    company: "conDati",
+    title: "Sr. UI Engineer",
+    year: "2018 - current",
+    tags: ["Lead UI Developer", "Infrastructure", "Design"],
+    description:
+      "Apply AI and Machine Learning algorithms to build analytic solutions that transform massive volumes of customer, event, and transaction data into accessible dashboards, alerts and automatic reports",
+    imgArr: [
+      "/images/condati1.jpg",
+      "/images/condati2.jpg",
+      "/images/condati3.jpg",
+    ],
+    type: ["JavaScript", "TypeScript", "React", "Python", "Redux"],
+  },
+  {
+    company: "Akamai mPulse",
+    title: "Software Engineer II",
+    year: "2017 - 2018",
+    tags: ["UI Developer", "Design"],
+    description:
+      "Get granular visibility into how end users perceive performance, and take action against third-party resources that are slowing you down. Maximize your business outcomes by prioritizing enhancements that matter.",
+    imgArr: [
+      "/images/akamai1.jpg",
+      "/images/akamai2.jpg",
+      "/images/akamai3.jpg",
+    ],
+    type: ["JavaScript", "React", "Redux"],
+  },
+  {
+    company: "SOASTA",
+    title: "Software Engineer",
+    year: "2015 - 2017",
+    tags: ["Lead Designer", "Wordpress Developer"],
+    description:
+      "Cloud-based testing services, and created a browser-based website testing product. Website tests include load testing, software performance testing, functional testing and user interface testing.",
+    imgArr: [
+      "/images/soasta1.jpg",
+      "/images/soasta2.jpg",
+      "/images/soasta3.jpg",
+    ],
+    type: ["JavaScript", "Wordpress"],
+  },
+  {
+    company: "Hawk Ridge Systems",
+    title: "Web Developer",
+    year: "2013 - 2015",
+    tags: ["UI Developer", "Wordpress Developer"],
+    description:
+      "The largest worldwide partner for Dassault Systèmes SOLIDWORKS, our goal at Hawk Ridge Systems is to provide you with the the widest selection of 3D design and manufacturing solutions, and access to the most experienced team of professionals in the industry.",
+    imgArr: ["/images/hrs1.jpg", "/images/hrs2.jpg", "/images/hrs3.jpg"],
+    type: ["Wordpress"],
+  },
+];
+
+function Work(): JSX.Element {
+  const [isOpen, setIsOpen] = useState(-1);
+  const [workFilter, setWorkFilter] = useState<string>("all");
+  const items = [...new Set(workInfo.map((e) => e.type).flat())];
+  const filteredWork = workInfo.filter((e) =>
+    workFilter === "all" ? e : e.type.includes(workFilter)
+  );
+  return (
+    <>
+      <Box id="portfolio" pt={10} pb={10} textAlign="center">
+        <Text fontSize="sm">Portfolio</Text>
+        <Heading size="3xl" fontWeight="light" py={5}>
+          Selected Work
+        </Heading>
+        <Flex justifyContent="center">
+          <Button
+            variant={workFilter === "all" ? "cyan700" : "ghostCyan"}
+            size="sm"
+            onClick={() => setWorkFilter("all")}
+          >
+            All
+          </Button>
+          {items.map((e) => (
+            <Button
+              variant={workFilter === e ? "cyan700" : "ghostCyan"}
+              key={e}
+              size="sm"
+              onClick={() => setWorkFilter(e)}
+              colorScheme={workFilter === e ? "cyan" : undefined}
+            >
+              {e}
+            </Button>
+          ))}
+        </Flex>
+      </Box>
+      <Divider border="1px solid black" borderColor="black" opacity={1} />
+      <Box
+        display={{ base: "block", sm: "block", md: "grid" }}
+        gridTemplateColumns={{
+          md: filteredWork.length === 1 ? ".5fr" : "1fr 1fr",
+        }}
+        justifyContent={filteredWork.length === 1 ? "center" : undefined}
+      >
+        {filteredWork.map((props, i) => (
+          <WorkItem
+            br={i % 2 === 0}
+            bb={
+              filteredWork.length === 2 ||
+              (filteredWork.length === 4 && i === 2)
+            }
+            last={
+              (i > 1 && i === filteredWork.length - 1) ||
+              filteredWork.length === 1
+            }
+            key={props.title + props.year}
+            index={i}
+            onOpen={onOpen}
+            {...props}
+          />
+        ))}
+      </Box>
+      <Modal
+        isOpen={isOpen !== -1}
+        onClose={() => setIsOpen(-1)}
+        isCentered
+        size="5xl"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <ModalHeader />
+            <WorkModal item={workInfo[isOpen]} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+  function onOpen(id: number) {
+    return setIsOpen(id);
+  }
+}
+
+function WorkItem({
+  title,
+  imgArr,
+  br,
+  bb,
+  last,
+  year,
+  tags,
+  onOpen,
+  index,
+}: Work & {
+  br: boolean;
+  bb: boolean;
+  last: boolean;
+  index: number;
+  onOpen: (id: number) => void;
+}): JSX.Element {
+  const borderRight = useBreakpointValue({ md: "1px solid black" });
+  return (
+    <Flex
+      borderRight={br && !last ? borderRight : undefined}
+      borderBottom={last || bb ? undefined : "1px solid black"}
+      justifyContent="center"
+    >
+      <Box p={10}>
+        <Box
+          className="nextImg"
+          position="relative"
+          onClick={() => onOpen(index)}
+        >
+          <Image src={imgArr[0]} width="3360px" height="1946px" />
+        </Box>
+        <Flex py={8} justifyContent="space-between" alignItems="baseline">
+          <Heading size="lg">{title}</Heading>
+          <Text color="gray.700" fontSize="sm">
+            ({year})
+          </Text>
+        </Flex>
+        <Flex marginTop="auto">
+          {tags.map((e, i) => (
+            <Tag key={e} mr={3} bg={`cyan.${9 - i}00`} color="white">
+              {e}
+            </Tag>
+          ))}
+        </Flex>
+      </Box>
+    </Flex>
+  );
+}
+
+function WorkModal({ item }: { item: Work }) {
+  const { title, description, type, imgArr, company } = item;
+  const [active, setActive] = useState(0);
+  return (
+    <Box>
+      <Box position="relative">
+        <IconButton
+          aria-label="right arrow"
+          variant="ghostCyan"
+          icon={<ChevronLeftIcon boxSize={10} color="cyan.700" />}
+          position="absolute"
+          left="-3%"
+          top="35%"
+          zIndex="1"
+          onClick={() =>
+            setActive((prev) => (prev === 0 ? imgArr.length - 1 : prev - 1))
+          }
+        />
+        <Box px={6}>
+          <Image
+            className="borderImg"
+            src={imgArr[active]}
+            width="1680px"
+            height="905px"
+          />
+        </Box>
+        <IconButton
+          aria-label="right arrow"
+          variant="ghostCyan"
+          icon={<ChevronRightIcon boxSize={10} color="cyan.700" />}
+          position="absolute"
+          right="-3%"
+          top="35%"
+          zIndex="1"
+          onClick={() =>
+            setActive((prev) => (prev === imgArr.length - 1 ? 0 : prev + 1))
+          }
+        />
+      </Box>
+      <SimpleGrid templateColumns="1fr 0.5fr" py={4} px={6}>
+        <Box pr={4} borderRight="1px solid" borderColor="black" mr={4}>
+          <Flex justifyContent="space-between" alignItems="baseline" mb={2}>
+            <Heading color="cyan.700" size="lg">
+              {company}
+            </Heading>
+            <Text fontSize="sm" color="gray.500">
+              {title}
+            </Text>
+          </Flex>
+          <Text fontSize="sm">{description}</Text>
+        </Box>
+        <Box>
+          <Text fontSize="lg" fontWeight={900} my={3}>
+            Technologies
+          </Text>
+          <Flex>
+            {type.map((e) => {
+              switch (e) {
+                case "JavaScript":
+                  return <JavaScriptIcon boxSize={10} mr={3} />;
+                case "React":
+                  return <ReactIcon boxSize={10} mr={3} />;
+                case "TypeScript":
+                  return <TypeScriptIcon boxSize={10} mr={3} />;
+                case "Python":
+                  return <PythonIcon boxSize={10} mr={3} />;
+                case "Redux":
+                  return <ReduxIcon boxSize={10} mr={3} />;
+                case "Wordpress":
+                  return <WordpressIcon boxSize={10} mr={3} />;
+                default:
+                  return null;
+              }
+            })}
+          </Flex>
+        </Box>
+      </SimpleGrid>
+    </Box>
+  );
+}
+
+export default Work;
