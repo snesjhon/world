@@ -14,6 +14,7 @@ import {
   ModalOverlay,
   SimpleGrid,
   Tag,
+  Image as Img,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -95,7 +96,7 @@ function Work(): JSX.Element {
   const [isOpen, setIsOpen] = useState(-1);
   const [workFilter, setWorkFilter] = useState<string>("all");
   const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
-  const modalSize = useBreakpointValue({ base: "full", sm: "5xl" });
+  const modalSize = useBreakpointValue({ base: "full", sm: "xl", md: "5xl" });
   const items = [...new Set(workInfo.map((e) => e.type).flat())];
   const filteredWork = workInfo.filter((e) =>
     workFilter === "all" ? e : e.type.includes(workFilter)
@@ -252,12 +253,13 @@ function WorkModal({ item }: { item: Work }) {
           }
         />
         <Box px={6}>
-          <Image
+          <Img className="borderImg" src={imgArr[active]} />
+          {/* <Image
             className="borderImg"
             src={imgArr[active]}
             width="1680px"
             height="905px"
-          />
+          /> */}
         </Box>
         <IconButton
           aria-label="right arrow"
@@ -273,14 +275,14 @@ function WorkModal({ item }: { item: Work }) {
         />
       </Box>
       <SimpleGrid
-        templateColumns={{ sm: "1fr 0.5fr" }}
+        templateColumns={{ sm: "1fr", md: "1fr 0.5fr" }}
         templateRows={{ base: "1fr 1fr", sm: "1fr" }}
         py={4}
         px={6}
       >
         <Box
           pr={4}
-          borderRight={{ sm: "1px solid" }}
+          borderRight={{ md: "1px solid" }}
           borderColor="black"
           mr={4}
         >
