@@ -7,11 +7,13 @@ import {
   IconProps,
   Image,
   SimpleGrid,
+  Spinner,
+  Square,
   Text,
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import ChakraIcon from "./Icons/ChakraIcon";
 import CSSIcon from "./Icons/CSSIcon";
 import DockerIcon from "./Icons/DockerIcon";
@@ -28,6 +30,7 @@ import WebpackIcon from "./Icons/WebpackIcon";
 import WordpressIcon from "./Icons/WordpressIcon";
 
 function About(): JSX.Element {
+  const [isLoaded, setIsLoaded] = useState(false);
   const beforeItem = useBreakpointValue({
     base: "-10%",
     sm: "-5%",
@@ -67,6 +70,7 @@ function About(): JSX.Element {
               borderColor: !borderColor + "", // lol ts
               borderRadius: "5px",
               zIndex: 0,
+              opacity: isLoaded ? 1 : 0,
             }}
             _after={{
               content: "'About me'",
@@ -76,8 +80,14 @@ function About(): JSX.Element {
               backgroundColor: borderColor,
               padding: 2,
               zIndex: 1,
+              opacity: isLoaded ? 1 : 0,
             }}
           >
+            {!isLoaded && (
+              <Square>
+                <Spinner />
+              </Square>
+            )}
             <Image
               src="/images/myavatar.jpg"
               border="1px solid"
@@ -86,6 +96,7 @@ function About(): JSX.Element {
               zIndex={3}
               borderRadius="5px"
               position="relative"
+              onLoad={() => setIsLoaded(true)}
             />
           </Box>
         </Box>

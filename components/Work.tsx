@@ -14,6 +14,7 @@ import {
   ModalOverlay,
   SimpleGrid,
   Tag,
+  Image as Img,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -44,11 +45,7 @@ const workInfo: Work[] = [
     tags: ["Lead UI Developer", "Infrastructure", "Design"],
     description:
       "Apply AI and Machine Learning algorithms to build analytic solutions that transform massive volumes of customer, event, and transaction data into accessible dashboards, alerts and automatic reports",
-    imgArr: [
-      "/images/condati1.jpg",
-      "/images/condati2.jpg",
-      "/images/condati3.jpg",
-    ],
+    imgArr: ["condati1.jpg", "condati2.jpg", "condati3.jpg"],
     type: ["JavaScript", "TypeScript", "React", "Python", "Redux"],
   },
   {
@@ -58,11 +55,7 @@ const workInfo: Work[] = [
     tags: ["UI Developer", "Design"],
     description:
       "Get granular visibility into how end users perceive performance, and take action against third-party resources that are slowing you down. Maximize your business outcomes by prioritizing enhancements that matter.",
-    imgArr: [
-      "/images/akamai1.jpg",
-      "/images/akamai2.jpg",
-      "/images/akamai3.jpg",
-    ],
+    imgArr: ["akamai1.jpg", "akamai2.jpg", "akamai3.jpg"],
     type: ["JavaScript", "React", "Redux"],
   },
   {
@@ -72,11 +65,7 @@ const workInfo: Work[] = [
     tags: ["Lead Designer", "Wordpress Developer"],
     description:
       "Cloud-based testing services, and created a browser-based website testing product. Website tests include load testing, software performance testing, functional testing and user interface testing.",
-    imgArr: [
-      "/images/soasta1.jpg",
-      "/images/soasta2.jpg",
-      "/images/soasta3.jpg",
-    ],
+    imgArr: ["soasta1.jpg", "soasta2.jpg", "soasta3.jpg"],
     type: ["JavaScript", "Wordpress"],
   },
   {
@@ -86,7 +75,7 @@ const workInfo: Work[] = [
     tags: ["UI Developer", "Wordpress Developer"],
     description:
       "The largest worldwide partner for Dassault Systèmes SOLIDWORKS, our goal at Hawk Ridge Systems is to provide you with the the widest selection of 3D design and manufacturing solutions, and access to the most experienced team of professionals in the industry.",
-    imgArr: ["/images/hrs1.jpg", "/images/hrs2.jpg", "/images/hrs3.jpg"],
+    imgArr: ["hrs1.jpg", "hrs2.jpg", "hrs3.jpg"],
     type: ["Wordpress"],
   },
 ];
@@ -95,8 +84,8 @@ function Work(): JSX.Element {
   const [isOpen, setIsOpen] = useState(-1);
   const [workFilter, setWorkFilter] = useState<string>("all");
   const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
-  const modalSize = useBreakpointValue({ base: "full", sm: "5xl" });
-  const items = [...new Set(workInfo.map((e) => e.type).flat())];
+  const modalSize = useBreakpointValue({ base: "full", sm: "xl", md: "5xl" });
+  const items = [...new Set(...workInfo.map((e) => e.type))];
   const filteredWork = workInfo.filter((e) =>
     workFilter === "all" ? e : e.type.includes(workFilter)
   );
@@ -207,7 +196,7 @@ function WorkItem({
           position="relative"
           onClick={() => onOpen(index)}
         >
-          <Image src={imgArr[0]} width="3360px" height="1946px" />
+          <Image src={`/images/${imgArr[0]}`} width="413px" height="241px" />
         </Box>
         <Flex py={8} justifyContent="space-between" alignItems="baseline">
           <Heading size="lg">{title}</Heading>
@@ -238,49 +227,44 @@ function WorkModal({ item }: { item: Work }) {
   const [active, setActive] = useState(0);
   return (
     <Box>
-      <Box position="relative">
+      <Img
+        className="borderImg"
+        src={`/images/${imgArr[active]}`}
+        fallbackSrc={`/images/p/${imgArr[active]}`}
+        w="100%"
+        h="100%"
+      />
+      <Flex justifyContent="space-between" alignItems="center" pt={4}>
         <IconButton
           aria-label="right arrow"
-          variant="ghostCyan"
-          icon={<ChevronLeftIcon boxSize={10} color="cyan.700" />}
-          position="absolute"
-          left="-3%"
-          top="35%"
-          zIndex="1"
+          variant="outline"
+          size="sm"
+          icon={<ChevronLeftIcon boxSize={6} color="cyan.700" />}
           onClick={() =>
             setActive((prev) => (prev === 0 ? imgArr.length - 1 : prev - 1))
           }
         />
-        <Box px={6}>
-          <Image
-            className="borderImg"
-            src={imgArr[active]}
-            width="1680px"
-            height="905px"
-          />
+        <Box>
+          {active + 1} / {imgArr.length}
         </Box>
         <IconButton
           aria-label="right arrow"
-          variant="ghostCyan"
-          icon={<ChevronRightIcon boxSize={10} color="cyan.700" />}
-          position="absolute"
-          right="-3%"
-          top="35%"
-          zIndex="1"
+          variant="outline"
+          size="sm"
+          icon={<ChevronRightIcon boxSize={6} color="cyan.700" />}
           onClick={() =>
             setActive((prev) => (prev === imgArr.length - 1 ? 0 : prev + 1))
           }
         />
-      </Box>
+      </Flex>
       <SimpleGrid
-        templateColumns={{ sm: "1fr 0.5fr" }}
+        templateColumns={{ sm: "1fr", md: "1fr 0.5fr" }}
         templateRows={{ base: "1fr 1fr", sm: "1fr" }}
         py={4}
-        px={6}
       >
         <Box
           pr={4}
-          borderRight={{ sm: "1px solid" }}
+          borderRight={{ md: "1px solid" }}
           borderColor="black"
           mr={4}
         >
