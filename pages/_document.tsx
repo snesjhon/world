@@ -1,5 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+
 class MyDocument extends Document {
   render(): JSX.Element {
     return (
@@ -9,6 +10,21 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap"
             rel="stylesheet"
+          />
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-PYNYR619KN"
+          />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-PYNYR619KN');
+             `,
+            }}
           />
         </Head>
         <body>
