@@ -6,7 +6,7 @@ import {
   Link,
   SimpleGrid,
   Text,
-  useBreakpointValue,
+  useBreakpointValue
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -23,6 +23,13 @@ function Experience(): JSX.Element {
       <SimpleGrid columns={{ base: 1, md: 2 }} rows={{ base: 2, md: 1 }}>
         <Box borderRight={{ base: 0, md: "2px solid black" }}>
           <Box py={{ base: 0, md: 20 }}>
+            <Job
+              number={0}
+              title="Software Developer"
+              year="2021 - Present"
+              company="Shopify"
+              link="https://www.shopify.com//"
+            />
             <Job
               number={1}
               title="Co-Founder"
@@ -73,7 +80,7 @@ function Job({
   number,
   company,
   title,
-  link,
+  link
 }: {
   year: string;
   number: number;
@@ -99,7 +106,7 @@ function Job({
           top: "-3px",
           right: "-7px",
           marginTop: 12,
-          borderRadius: "50%",
+          borderRadius: "50%"
         }}
       >
         <Text fontSize="sm">{year}</Text>

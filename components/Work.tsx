@@ -16,7 +16,7 @@ import {
   Tag,
   Image as Img,
   Text,
-  useBreakpointValue,
+  useBreakpointValue
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -27,7 +27,7 @@ import WordpressIcon from "./Icons/WordpressIcon";
 import ReduxIcon from "./Icons/ReduxIcon";
 import ReactIcon from "./Icons/ReactIcon";
 
-interface Work {
+interface Props {
   title: string;
   company: string;
   year: string;
@@ -37,16 +37,16 @@ interface Work {
   type: string[];
 }
 
-const workInfo: Work[] = [
+const workInfo: Props[] = [
   {
     company: "conDati",
     title: "Sr. UI Engineer",
-    year: "2018 - current",
+    year: "2018 - 2021",
     tags: ["Lead UI Developer", "Infrastructure", "Design"],
     description:
       "Apply AI and Machine Learning algorithms to build analytic solutions that transform massive volumes of customer, event, and transaction data into accessible dashboards, alerts and automatic reports",
     imgArr: ["condati1.jpg", "condati2.jpg", "condati3.jpg"],
-    type: ["JavaScript", "TypeScript", "React", "Python", "Redux"],
+    type: ["JavaScript", "TypeScript", "React", "Python", "Redux"]
   },
   {
     company: "Akamai mPulse",
@@ -56,7 +56,7 @@ const workInfo: Work[] = [
     description:
       "Get granular visibility into how end users perceive performance, and take action against third-party resources that are slowing you down. Maximize your business outcomes by prioritizing enhancements that matter.",
     imgArr: ["akamai1.jpg", "akamai2.jpg", "akamai3.jpg"],
-    type: ["JavaScript", "React", "Redux"],
+    type: ["JavaScript", "React", "Redux"]
   },
   {
     company: "SOASTA",
@@ -66,7 +66,7 @@ const workInfo: Work[] = [
     description:
       "Cloud-based testing services, and created a browser-based website testing product. Website tests include load testing, software performance testing, functional testing and user interface testing.",
     imgArr: ["soasta1.jpg", "soasta2.jpg", "soasta3.jpg"],
-    type: ["JavaScript", "Wordpress"],
+    type: ["JavaScript", "Wordpress"]
   },
   {
     company: "Hawk Ridge Systems",
@@ -76,8 +76,8 @@ const workInfo: Work[] = [
     description:
       "The largest worldwide partner for Dassault Systèmes SOLIDWORKS, our goal at Hawk Ridge Systems is to provide you with the the widest selection of 3D design and manufacturing solutions, and access to the most experienced team of professionals in the industry.",
     imgArr: ["hrs1.jpg", "hrs2.jpg", "hrs3.jpg"],
-    type: ["Wordpress"],
-  },
+    type: ["Wordpress"]
+  }
 ];
 
 function Work(): JSX.Element {
@@ -121,7 +121,7 @@ function Work(): JSX.Element {
       <Box
         display={{ base: "block", sm: "block", md: "grid" }}
         gridTemplateColumns={{
-          md: filteredWork.length === 1 ? ".5fr" : "1fr 1fr",
+          md: filteredWork.length === 1 ? ".5fr" : "1fr 1fr"
         }}
         justifyContent={filteredWork.length === 1 ? "center" : undefined}
       >
@@ -174,8 +174,8 @@ function WorkItem({
   year,
   tags,
   onOpen,
-  index,
-}: Work & {
+  index
+}: Props & {
   br: boolean;
   bb: boolean;
   last: boolean;
@@ -222,7 +222,7 @@ function WorkItem({
   );
 }
 
-function WorkModal({ item }: { item: Work }) {
+function WorkModal({ item }: { item: Props }) {
   const { title, description, type, imgArr, company } = item;
   const [active, setActive] = useState(0);
   return (
