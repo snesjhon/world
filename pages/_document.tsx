@@ -2,7 +2,7 @@ import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-  render(): JSX.Element {
+  render() {
     return (
       <Html lang="en">
         <Head>
@@ -23,7 +23,7 @@ class MyDocument extends Document {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-PYNYR619KN');
-             `,
+             `
             }}
           />
         </Head>

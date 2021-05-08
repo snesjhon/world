@@ -8,8 +8,9 @@ import {
   VStack,
   Heading,
   IconButton,
-  Fade,
+  Fade
 } from "@chakra-ui/react";
+
 import React, { useEffect, useState } from "react";
 import About from "../components/About";
 import Experience from "../components/Experience";
@@ -21,11 +22,19 @@ import Projects from "../components/Projects";
 import Work from "../components/Work";
 import { debounce } from "../components/helpers";
 import GithubIcon from "../components/Icons/GithubIcon";
+
 import { ArrowUpIcon } from "@chakra-ui/icons";
 import InstagramIcon from "../components/Icons/InstagramIcon";
 import TwitterIcon from "../components/Icons/TwitterIcon";
 
-function App(): JSX.Element {
+function SolidDivider() {
+  const borderColor = useColorModeValue("gray.900", "gray.100");
+  return (
+    <Divider border="1px solid black" borderColor={borderColor} opacity={1} />
+  );
+}
+
+function App() {
   const [showHeader, setShowHeader] = useState(false);
   const borderColor = useColorModeValue("gray.800", "#fafafa");
   const headerBg = useColorModeValue("#fafafa", "gray.800");
@@ -36,12 +45,13 @@ function App(): JSX.Element {
       setShowHeader(false);
     }
   }, 30);
+
   useEffect(() => {
     window.addEventListener("scroll", loggin);
     return () => {
       window.removeEventListener("scroll", loggin);
     };
-  }, []);
+  }, [loggin]);
 
   return (
     <>
@@ -106,7 +116,7 @@ function App(): JSX.Element {
                   onClick={() =>
                     document.documentElement.scrollTo({
                       top: 0,
-                      behavior: "smooth",
+                      behavior: "smooth"
                     })
                   }
                 />
@@ -120,7 +130,7 @@ function App(): JSX.Element {
             in={showHeader}
             style={{
               position: "sticky",
-              zIndex: 10,
+              zIndex: 10
             }}
           >
             <Box
@@ -156,13 +166,6 @@ function App(): JSX.Element {
         </Box>
       </Container>
     </>
-  );
-}
-
-function SolidDivider(): JSX.Element {
-  const borderColor = useColorModeValue("gray.900", "gray.100");
-  return (
-    <Divider border="1px solid black" borderColor={borderColor} opacity={1} />
   );
 }
 
