@@ -8,10 +8,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const goals = [
-  "Visit Japan",
-  "Complete RS 500 personal Projects",
-];
+const goals = ["Visit Japan", "Complete RS 500 personal Projects"];
 
 const achieved = [
   "Alcatraz Swim",
@@ -41,11 +38,7 @@ function Goals(): JSX.Element {
           >
             Current
           </Text>
-          <Box
-            py={{ sm: 2, md: 20 }}
-            px={20}
-            position="relative"
-          >
+          <Box py={{ sm: 2, md: 20 }} px={20} position="relative">
             {goals.map((e) => (
               <Heading
                 size="md"
@@ -67,12 +60,16 @@ function Goals(): JSX.Element {
             textAlign="center"
             fontWeight="bold"
             borderBottom={{ base: 0, md: "2px solid black" }}
-            borderLeft={{ md: "2px solid black" }}
             pb={2}
           >
             Achieved
           </Text>
-          <Box py={{ sm: 2, md: 20 }} px={20} position="relative">
+          <Box
+            py={{ sm: 2, md: 20 }}
+            px={20}
+            position="relative"
+            borderRight={{ md: "2px solid black" }}
+          >
             {achieved.map((e) => (
               <Heading
                 size="md"
