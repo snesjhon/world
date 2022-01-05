@@ -68,7 +68,7 @@ function Goals(): JSX.Element {
             py={{ sm: 2, md: 20 }}
             px={20}
             position="relative"
-            borderRight={{ md: "2px solid black" }}
+            borderLeft={{ md: "2px solid black" }}
           >
             {achieved.map((e) => (
               <Heading
