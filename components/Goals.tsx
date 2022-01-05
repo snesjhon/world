@@ -10,8 +10,6 @@ import React from "react";
 
 const goals = [
   "Visit Japan",
-  "Own a House",
-  "Amtrak Cross Country",
   "Complete RS 500 personal Projects",
 ];
 
@@ -20,6 +18,8 @@ const achieved = [
   "Golden Gate Swim",
   "Own a Motorcycle",
   "Become a Software Engineer",
+  "Cross Country Road Trip",
+  "Own a House",
 ];
 
 function Goals(): JSX.Element {
