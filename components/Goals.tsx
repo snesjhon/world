@@ -44,7 +44,6 @@ function Goals(): JSX.Element {
           <Box
             py={{ sm: 2, md: 20 }}
             px={20}
-            borderRight={{ md: "2px solid black" }}
             position="relative"
           >
             {goals.map((e) => (
@@ -68,6 +67,7 @@ function Goals(): JSX.Element {
             textAlign="center"
             fontWeight="bold"
             borderBottom={{ base: 0, md: "2px solid black" }}
+            borderLeft={{ md: "2px solid black" }}
             pb={2}
           >
             Achieved
