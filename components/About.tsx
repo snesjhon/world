@@ -11,7 +11,7 @@ import {
   Square,
   Text,
   useBreakpointValue,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React, { FunctionComponent, useState } from "react";
 import ChakraIcon from "./Icons/ChakraIcon";
@@ -28,23 +28,25 @@ import TypeScriptIcon from "./Icons/TypeScriptIcon";
 import WebflowIcon from "./Icons/WebflowIcon";
 import WebpackIcon from "./Icons/WebpackIcon";
 import WordpressIcon from "./Icons/WordpressIcon";
+import NextLink from "next/link";
+import { Link } from "@chakra-ui/react";
 
 function About() {
   const [isLoaded, setIsLoaded] = useState(false);
   const beforeItem = useBreakpointValue({
     base: "-10%",
     sm: "-5%",
-    md: "-15%"
+    md: "-15%",
   });
   const afterItemTop = useBreakpointValue({
     base: "-10%",
     sm: "-8%",
-    md: "45%"
+    md: "45%",
   });
   const afterItemRight = useBreakpointValue({
     base: 0,
     sm: 0,
-    md: "-30%"
+    md: "-30%",
   });
   const borderColor = useColorModeValue("#fafafa", "gray.800");
   return (
@@ -70,7 +72,7 @@ function About() {
               borderColor: !borderColor + "", // lol ts
               borderRadius: "5px",
               zIndex: 0,
-              opacity: isLoaded ? 1 : 0
+              opacity: isLoaded ? 1 : 0,
             }}
             _after={{
               content: "'About me'",
@@ -80,7 +82,7 @@ function About() {
               backgroundColor: borderColor,
               padding: 2,
               zIndex: 1,
-              opacity: isLoaded ? 1 : 0
+              opacity: isLoaded ? 1 : 0,
             }}
           >
             {!isLoaded && (
@@ -127,6 +129,10 @@ function About() {
           >
             Get in touch
           </Button>
+
+          <NextLink href="/uses" passHref>
+            <Button variant="cyan700">What I Use</Button>
+          </NextLink>
         </Box>
       </Box>
       <Flex py={10} justifyContent="space-between">
@@ -172,7 +178,7 @@ function About() {
 
 function AboutIcon({
   IconCmpt,
-  text
+  text,
 }: {
   IconCmpt: FunctionComponent<IconProps>;
   text: string;

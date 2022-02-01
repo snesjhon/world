@@ -11,15 +11,15 @@ const customTheme = extendTheme({
       baseStyle: ({ colorMode }: ColorMode) => ({
         fontFamily: `'Lato', sans-serif`,
         fontWeight: 400,
-        color: colorMode === "light" ? "gray.700" : "#fafafa"
-      })
+        color: colorMode === "light" ? "gray.700" : "#fafafa",
+      }),
     },
     Button: {
       baseStyle: {
         lineHeight: 1,
         _focus: {
-          boxShadow: "none"
-        }
+          boxShadow: "none",
+        },
       },
       variants: {
         cyan700: ({ colorMode }: ColorMode) => ({
@@ -30,23 +30,23 @@ const customTheme = extendTheme({
           borderColor: "cyan.700",
           _active: {
             color: "white",
-            bg: colorMode === "light" ? "cyan.900" : "cyan.800"
+            bg: colorMode === "light" ? "cyan.900" : "cyan.800",
           },
           _hover: {
             color: "white",
-            bg: colorMode === "light" ? "cyan.800" : "cyan.800"
-          }
+            bg: colorMode === "light" ? "cyan.800" : "cyan.800",
+          },
         }),
         ghostCyan: ({ colorMode }: ColorMode) => ({
           fontWeight: 500,
           border: "1px solid transparent",
           _active: {
-            color: "cyan.800"
+            color: "cyan.800",
           },
           _hover: {
             border: "1px solid",
-            borderColor: colorMode === "light" ? "cyan.800" : "cyan.800"
-          }
+            borderColor: colorMode === "light" ? "cyan.800" : "cyan.800",
+          },
         }),
         linkCyan: ({ colorMode }: ColorMode) => ({
           fontWeight: 500,
@@ -54,25 +54,25 @@ const customTheme = extendTheme({
           color: "cyan.700",
           _hover: {
             color: colorMode === "light" ? "cyan.800" : "cyan.800",
-            textDecoration: "underline"
+            textDecoration: "underline",
           },
           _active: {
-            textDecoration: "underline"
-          }
-        })
-      }
-    }
+            textDecoration: "underline",
+          },
+        }),
+      },
+    },
   },
   styles: {
     global: (props) => ({
       body: {
         fontFamily: "'Open Sans', sans-serif",
         background: props.colorMode === "light" ? "#fafafa" : "gray.800",
-        color: props.colorMode === "light" ? "gray.700" : "#fafafa"
+        color: props.colorMode === "light" ? "gray.700" : "#fafafa",
       },
       ".borderImg": {
         borderRadius: "5px",
-        border: "1px solid lightgray !important"
+        border: "1px solid lightgray !important",
       },
       ".nextImg::after": {
         content: "''",
@@ -85,22 +85,22 @@ const customTheme = extendTheme({
         left: 0,
         opacity: 0.4,
         transition: "opacity 0.2s ease-in-out",
-        borderRadius: "5px"
+        borderRadius: "5px",
       },
       ".nextImg:hover:after": {
         opacity: 0,
-        cursor: "pointer"
+        cursor: "pointer",
       },
       ".nextImg img": {
         border: "1px solid #E2E8F0 !important",
         borderColor: "gray.200",
-        borderRadius: "5px"
-      }
-    })
-  }
+        borderRadius: "5px",
+      },
+    }),
+  },
 });
 
-function GlobalApp({ Component, pageProps }: AppProps) {
+function GlobalApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>

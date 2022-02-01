@@ -1,31 +1,26 @@
+import { ArrowUpIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Button,
   Container,
   Divider,
+  Fade,
   Flex,
-  Slide,
-  useColorModeValue,
-  VStack,
   Heading,
   IconButton,
-  Fade,
+  Slide,
+  useBreakpointValue,
+  useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
-
 import React, { useEffect, useState } from "react";
-import About from "../components/About";
-import Experience from "../components/Experience";
-import Footer from "../components/Footer";
-import Goals from "../components/Goals";
-import Header from "../components/Header";
-import Menu from "../components/Menu";
-import Projects from "../components/Projects";
-import Work from "../components/Work";
 import { debounce } from "../components/helpers";
 import GithubIcon from "../components/Icons/GithubIcon";
-
-import { ArrowUpIcon } from "@chakra-ui/icons";
 import InstagramIcon from "../components/Icons/InstagramIcon";
 import TwitterIcon from "../components/Icons/TwitterIcon";
+import Menu from "../components/Menu";
+
+import NextLink from "next/link";
 
 function SolidDivider() {
   const borderColor = useColorModeValue("gray.900", "gray.100");
@@ -34,10 +29,13 @@ function SolidDivider() {
   );
 }
 
-function App(): JSX.Element {
+export default function Uses(): JSX.Element {
   const [showHeader, setShowHeader] = useState(false);
   const borderColor = useColorModeValue("gray.800", "#fafafa");
   const headerBg = useColorModeValue("#fafafa", "gray.800");
+  const btnSize = useBreakpointValue({ base: "sm", sm: "md" });
+
+  const headerSize = useBreakpointValue({ base: "3xl", xs: "4xl" });
   const loggin = debounce(() => {
     if (window.scrollY > 200 && !showHeader) {
       setShowHeader(true);
@@ -98,7 +96,7 @@ function App(): JSX.Element {
             />
           </Box>
         </VStack>
-        {/* <Box position="absolute" right="0">
+        <Box position="absolute" right="0">
           <VStack
             position="fixed"
             bottom="30%"
@@ -123,9 +121,9 @@ function App(): JSX.Element {
               </Fade>
             </Box>
           </VStack>
-        </Box> */}
+        </Box>
         <Box border="2px solid" borderColor={borderColor}>
-          <Slide
+          {/* <Slide
             direction="top"
             in={showHeader}
             style={{
@@ -150,23 +148,30 @@ function App(): JSX.Element {
                 <Menu />
               </Flex>
             </Box>
-          </Slide>
-          <Header />
+          </Slide> */}
+          <Box px={{ base: 5, sm: 10, lg: 20 }}>
+            <Box pt={{ base: 9 }}>
+              <NextLink href="/" passHref>
+                <Button variant="linkCyan" fontWeight="md" size={btnSize}>
+                  Back
+                </Button>
+              </NextLink>
+            </Box>
+            <Box
+              display={{ md: "flex" }}
+              pb={5}
+              justifyContent="space-between"
+              alignItems="baseline"
+            >
+              <Heading size={headerSize} whiteSpace="nowrap">
+                What I use
+              </Heading>
+            </Box>
+          </Box>
           <SolidDivider />
-          <About />
-          <SolidDivider />
-          <Experience />
-          <SolidDivider />
-          <Work />
-          <SolidDivider />
-          <Projects />
-          <Goals />
-          <SolidDivider />
-          <Footer />
+          something else
         </Box>
       </Container>
     </>
   );
 }
-
-export default App;

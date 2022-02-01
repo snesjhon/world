@@ -3,7 +3,7 @@ import React from "react";
 import Menu from "./Menu";
 
 function Header(): JSX.Element {
-  const headerSize = useBreakpointValue({ base: "3xl", xs: "4xl" });
+  // const headerSize = useBreakpointValue({ base: "3xl", xs: "4xl" });
 
   return (
     <Box px={{ base: 5, sm: 10, lg: 20 }}>
@@ -13,7 +13,7 @@ function Header(): JSX.Element {
         justifyContent="space-between"
         alignItems="baseline"
       >
-        <Heading size={headerSize} whiteSpace="nowrap">
+        <Heading size="3xl" whiteSpace="nowrap">
           Jhon Paredes
         </Heading>
         <Menu />
