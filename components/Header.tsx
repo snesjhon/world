@@ -2,7 +2,7 @@ import { Box, Heading, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
 import Menu from "./Menu";
 
-function Header(): JSX.Element {
+export default function Header(): JSX.Element {
   const headerSize = useBreakpointValue({ base: "2xl", xs: "4xl" });
 
   return (
@@ -21,5 +21,3 @@ function Header(): JSX.Element {
     </Box>
   );
 }
-
-export default Header;

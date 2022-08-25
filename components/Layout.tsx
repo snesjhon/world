@@ -21,17 +21,12 @@ import { ArrowUpIcon } from "@chakra-ui/icons";
 import InstagramIcon from "../components/Icons/InstagramIcon";
 import TwitterIcon from "../components/Icons/TwitterIcon";
 
-function SolidDivider() {
-  const borderColor = useColorModeValue("gray.900", "gray.100");
-  return (
-    <Divider border="1px solid black" borderColor={borderColor} opacity={1} />
-  );
-}
-export default function Layout({
-  children,
-}: {
+interface Props {
   children: ReactNode;
-}): JSX.Element {
+}
+
+export default function Layout(props: Props): JSX.Element {
+  const { children } = props;
   const [showHeader, setShowHeader] = useState(false);
   const borderColor = useColorModeValue("gray.800", "#fafafa");
   const headerBg = useColorModeValue("#fafafa", "gray.800");
@@ -156,5 +151,12 @@ export default function Layout({
         </Box>
       </Container>
     </>
+  );
+}
+
+function SolidDivider() {
+  const borderColor = useColorModeValue("gray.900", "gray.100");
+  return (
+    <Divider border="1px solid black" borderColor={borderColor} opacity={1} />
   );
 }
