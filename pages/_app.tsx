@@ -3,18 +3,15 @@ import {
   ChakraProvider,
   extendTheme,
   Heading,
-  HeadingProps,
   ListItem,
-  List,
   Text,
   UnorderedList,
   Divider,
 } from "@chakra-ui/react";
-import { HTMLChakraComponents } from "@chakra-ui/system";
 import type { AppProps } from "next/app";
 import Link from "next/link";
 import Head from "next/head";
-import React, { ReactNode } from "react";
+import React from "react";
 import Layout from "../components/Layout";
 import { MDXProvider } from "@mdx-js/react";
 
@@ -146,6 +143,10 @@ const CustomLink = (
     </a>
   );
 };
+const headingProps = {
+  pt: { base: 4 },
+  pb: { base: 3 },
+};
 
 export default function GlobalApp({
   Component,
@@ -168,25 +169,17 @@ export default function GlobalApp({
             ul: UnorderedList,
             li: ListItem,
             hr: (props) => <Divider mt={3} borderColor="gray.300" {...props} />,
-            h1: (props) => <Heading as="h1" size="2xl" {...props} />,
-            h2: (props) => <Heading as="h2" size="xl" {...props} />,
+            h1: (props) => (
+              <Heading as="h1" size="2xl" {...headingProps} {...props} />
+            ),
+            h2: (props) => (
+              <Heading as="h2" size="xl" {...headingProps} {...props} />
+            ),
             h3: (props) => (
-              <Heading
-                as="h3"
-                size="lg"
-                pt={{ base: 4 }}
-                pb={{ base: 3 }}
-                {...props}
-              />
+              <Heading as="h3" size="lg" {...headingProps} {...props} />
             ),
             h4: (props) => (
-              <Heading
-                as="h4"
-                size="md"
-                pt={{ base: 4 }}
-                pb={{ base: 3 }}
-                {...props}
-              />
+              <Heading as="h4" size="md" {...headingProps} {...props} />
             ),
             a: CustomLink,
           }}
