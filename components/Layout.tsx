@@ -8,18 +8,12 @@ import {
   VStack,
   Heading,
   IconButton,
-  Fade
+  Fade,
 } from "@chakra-ui/react";
 
-import React, { useEffect, useState } from "react";
-import About from "../components/About";
-import Experience from "../components/Experience";
-import Footer from "../components/Footer";
-import Goals from "../components/Goals";
+import React, { ReactNode, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
-import Projects from "../components/Projects";
-import Work from "../components/Work";
 import { debounce } from "../components/helpers";
 import GithubIcon from "../components/Icons/GithubIcon";
 
@@ -27,14 +21,12 @@ import { ArrowUpIcon } from "@chakra-ui/icons";
 import InstagramIcon from "../components/Icons/InstagramIcon";
 import TwitterIcon from "../components/Icons/TwitterIcon";
 
-function SolidDivider() {
-  const borderColor = useColorModeValue("gray.900", "gray.100");
-  return (
-    <Divider border="1px solid black" borderColor={borderColor} opacity={1} />
-  );
+interface Props {
+  children: ReactNode;
 }
 
-function App() {
+export default function Layout(props: Props): JSX.Element {
+  const { children } = props;
   const [showHeader, setShowHeader] = useState(false);
   const borderColor = useColorModeValue("gray.800", "#fafafa");
   const headerBg = useColorModeValue("#fafafa", "gray.800");
@@ -116,7 +108,7 @@ function App() {
                   onClick={() =>
                     document.documentElement.scrollTo({
                       top: 0,
-                      behavior: "smooth"
+                      behavior: "smooth",
                     })
                   }
                 />
@@ -130,7 +122,7 @@ function App() {
             in={showHeader}
             style={{
               position: "sticky",
-              zIndex: 10
+              zIndex: 10,
             }}
           >
             <Box
@@ -153,20 +145,18 @@ function App() {
           </Slide>
           <Header />
           <SolidDivider />
-          <About />
-          <SolidDivider />
-          <Experience />
-          <SolidDivider />
-          <Work />
-          <SolidDivider />
-          <Projects />
-          <Goals />
-          <SolidDivider />
-          <Footer />
+          <Box px={{ base: 5, sm: 10, lg: 20 }} py={{ base: 10 }}>
+            {children}
+          </Box>
         </Box>
       </Container>
     </>
   );
 }
 
-export default App;
+function SolidDivider() {
+  const borderColor = useColorModeValue("gray.900", "gray.100");
+  return (
+    <Divider border="1px solid black" borderColor={borderColor} opacity={1} />
+  );
+}
