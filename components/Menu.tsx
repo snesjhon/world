@@ -24,13 +24,13 @@ export default function Menu(): JSX.Element {
       <div>
         <Button
           as="a"
-          href="/resume.pdf"
+          href="https://snesjhon.dev"
           size={btnSize}
           target="_blank"
           variant="ghostCyan"
           rightIcon={<ExternalLinkIcon />}
         >
-          Resume
+          Dev
         </Button>
       </div>
     </Flex>

@@ -5,10 +5,9 @@ import {
   Text,
   UnorderedList,
   Divider,
-  Link,
   Button,
 } from "@chakra-ui/react";
-
+import Link from "next/link";
 import { MDXProvider } from "@mdx-js/react";
 
 interface Props {
@@ -28,7 +27,7 @@ export default function MDXWrapper(props: Props): JSX.Element {
         p: (props) => <Text pb={{ base: 1 }} {...props} />,
         ul: UnorderedList,
         li: ListItem,
-        hr: (props) => <Divider mt={3} borderColor="gray.300" {...props} />,
+        hr: (props) => <Divider my={3} borderColor="gray.300" {...props} />,
         h1: (props) => (
           <Heading as="h1" size="2xl" {...headingProps} {...props} />
         ),
@@ -61,9 +60,9 @@ function CustomLink(
   if (isInternalLink) {
     return (
       <Link href={href}>
-        <a {...props}>
-          <Button variant="linkCyan">{props.children}</Button>
-        </a>
+        {/* <a {...props}> */}
+        <Button variant="linkCyan">{props.children}</Button>
+        {/* </a> */}
       </Link>
     );
   }
