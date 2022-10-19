@@ -46,111 +46,106 @@ export default function Layout(props: Props): JSX.Element {
   }, [loggin]);
 
   return (
-    <>
-      <Container
-        position="relative"
-        maxW="lg"
-        my={{ base: 0, sm: 3 }}
-        px={{ base: 0, sm: 4 }}
+    <Container
+      position="relative"
+      maxW="container.md"
+      my={{ base: 0, sm: 3 }}
+      px={{ base: 0, sm: 4 }}
+    >
+      <VStack
+        position="fixed"
+        bottom="30%"
+        ml="-5%"
+        display={{ base: "none", xl: "block" }}
       >
+        <Box>
+          <IconButton
+            as="a"
+            aria-label="Github"
+            variant="ghost"
+            icon={<GithubIcon boxSize={8} color="cyan.700" />}
+            href="https://github.com/snesjhon"
+            target="_blank"
+          />
+        </Box>
+        <Box>
+          <IconButton
+            as="a"
+            aria-label="Instagram"
+            variant="ghost"
+            icon={<InstagramIcon boxSize={8} color="cyan.700" />}
+            href="https://www.instagram.com/snesjhon/"
+            target="_blank"
+          />
+        </Box>
+        <Box>
+          <IconButton
+            as="a"
+            aria-label="Twitter"
+            variant="ghost"
+            icon={<TwitterIcon boxSize={8} color="cyan.700" />}
+            href="https://twitter.com/snesjhon"
+            target="_blank"
+          />
+        </Box>
+      </VStack>
+      <Box position="absolute" right="0">
         <VStack
           position="fixed"
           bottom="30%"
-          ml="-5%"
           display={{ base: "none", xl: "block" }}
         >
           <Box>
-            <IconButton
-              as="a"
-              aria-label="Github"
-              variant="ghost"
-              icon={<GithubIcon boxSize={8} color="cyan.700" />}
-              href="https://github.com/snesjhon"
-              target="_blank"
-            />
-          </Box>
-          <Box>
-            <IconButton
-              as="a"
-              aria-label="Instagram"
-              variant="ghost"
-              icon={<InstagramIcon boxSize={8} color="cyan.700" />}
-              href="https://www.instagram.com/snesjhon/"
-              target="_blank"
-            />
-          </Box>
-          <Box>
-            <IconButton
-              as="a"
-              aria-label="Twitter"
-              variant="ghost"
-              icon={<TwitterIcon boxSize={8} color="cyan.700" />}
-              href="https://twitter.com/snesjhon"
-              target="_blank"
-            />
+            <Fade in={showHeader}>
+              <IconButton
+                icon={<ArrowUpIcon />}
+                aria-label="Up Icon"
+                border="1px solid"
+                variant="ghost"
+                color="cyan.700"
+                boxSize={10}
+                onClick={() =>
+                  document.documentElement.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  })
+                }
+              />
+            </Fade>
           </Box>
         </VStack>
-        <Box position="absolute" right="0">
-          <VStack
-            position="fixed"
-            bottom="30%"
-            display={{ base: "none", xl: "block" }}
+      </Box>
+      <Box border="2px solid" borderColor={borderColor}>
+        <Slide
+          direction="top"
+          in={showHeader}
+          style={{
+            position: "sticky",
+            zIndex: 10,
+          }}
+        >
+          <Box
+            bg={headerBg}
+            py={3}
+            px={{ base: 8, md: 10 }}
+            w="100%"
+            borderBottom="2px solid"
+            borderColor={borderColor}
           >
-            <Box>
-              <Fade in={showHeader}>
-                <IconButton
-                  icon={<ArrowUpIcon />}
-                  aria-label="Up Icon"
-                  border="1px solid"
-                  variant="ghost"
-                  color="cyan.700"
-                  boxSize={10}
-                  onClick={() =>
-                    document.documentElement.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    })
-                  }
-                />
-              </Fade>
-            </Box>
-          </VStack>
-        </Box>
-        <Box border="2px solid" borderColor={borderColor}>
-          <Slide
-            direction="top"
-            in={showHeader}
-            style={{
-              position: "sticky",
-              zIndex: 10,
-            }}
-          >
-            <Box
-              bg={headerBg}
-              py={3}
-              px={{ base: 8, md: 10 }}
-              w="100%"
-              borderBottom="2px solid"
-              borderColor={borderColor}
+            <Flex
+              px={{ md: 4 }}
+              justifyContent="space-between"
+              alignItems="center"
             >
-              <Flex
-                px={{ md: 4 }}
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Heading size="md">JP</Heading>
-                <Menu />
-              </Flex>
-            </Box>
-          </Slide>
-          <Header />
-          <SolidDivider />
-          <Box px={{ base: 5, sm: 10, lg: 20 }} py={{ base: 10 }}>
-            {children}
+              <Heading size="md">JP</Heading>
+              <Menu />
+            </Flex>
           </Box>
-        </Box>
-      </Container>
-    </>
+        </Slide>
+        <Header />
+        {children}
+      </Box>
+    </Container>
   );
 }
 

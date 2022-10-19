@@ -1,8 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
-import { ChakraWrapper, MDXWrapper } from "../config";
-import { Layout } from "../components";
+import ChakraWrapper from "../config/chakra";
 
 const TITLE = "Home";
 const DESCRIPTION = "snesjhon home";
@@ -19,14 +18,10 @@ export default function GlobalApp({
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
         />
         <meta name="description" content={DESCRIPTION} />
-        <title>{TITLE} | Jhon Paredes</title>
+        <title>{`${TITLE} | Jhon Paredes`}</title>
       </Head>
       <ChakraWrapper>
-        <MDXWrapper>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </MDXWrapper>
+        <Component {...pageProps} />
       </ChakraWrapper>
     </>
   );

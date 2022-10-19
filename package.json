@@ -1,7 +1,7 @@
 {
   "name": "snesjhon",
   "version": "1.0.0",
-  "description": "",
+  "description": "My own website",
   "scripts": {
     "start": "next dev",
     "validate": "node_modules/.bin/tsc --noEmit"
@@ -17,27 +17,22 @@
   },
   "homepage": "https://github.com/snesjhon/me#readme",
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.0",
-    "@chakra-ui/react": "^1.0.0",
-    "@emotion/react": "^11.0.0",
-    "@emotion/styled": "^11.0.0",
-    "@markdoc/next.js": "^0.1.6",
-    "@mdx-js/react": "^2.1.2",
-    "@next/mdx": "^12.2.2",
-    "framer-motion": "^2.9.4",
-    "next": "^12.0.8",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@chakra-ui/icons": "^2.0.11",
+    "@chakra-ui/react": "^2.3.6",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "framer-motion": "^6.5.1",
+    "next": "^12.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.6",
-    "@types/react": "^16.9.55",
-    "@types/react-dom": "^16.9.9",
-    "@typescript-eslint/eslint-plugin": "^4.6.1",
-    "@typescript-eslint/parser": "^4.6.1",
-    "eslint": "^7.12.1",
-    "eslint-plugin-react": "^7.21.5",
-    "typescript": "^4.5.5"
-  },
-  "keywords": []
+    "@types/node": "^18.11.2",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "eslint": "^8.25.0",
+    "eslint-plugin-react": "^7.31.10",
+    "typescript": "^4.8.4"
+  }
 }

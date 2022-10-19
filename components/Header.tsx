@@ -6,7 +6,7 @@ export default function Header(): JSX.Element {
   const headerSize = useBreakpointValue({ base: "2xl", xs: "4xl" });
 
   return (
-    <Box px={{ base: 5, sm: 10, lg: 20 }}>
+    <Box px={{ base: 5, sm: 10, lg: 10 }}>
       <Box
         display={{ md: "flex" }}
         pb={5}
