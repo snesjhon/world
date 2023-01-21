@@ -23,7 +23,7 @@ class MyDocument extends Document {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-PYNYR619KN');
-             `
+             `,
             }}
           />
         </Head>

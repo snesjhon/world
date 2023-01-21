@@ -1,4 +1,4 @@
-export { default as Music } from "./Music";
-export { default as Header } from "./Header";
-export { default as Layout } from "./Layout";
-export { debounce } from "./helpers";
+export { Header } from "./Header";
+export { Posts } from "./Posts";
+export { Music } from "./Music";
+export { Layout } from "./Layout";

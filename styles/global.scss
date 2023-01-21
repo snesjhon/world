@@ -11,3 +11,17 @@ $enable-classes: true;
 
 // Import Pico
 @import "@picocss/pico/scss/pico";
+
+.avatar {
+  max-width: 15vh;
+  margin-bottom: var(--typography-spacing-vertical);
+  border-radius: 50%;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.home > section {
+  border-bottom: 1px solid var(--muted-border-color);
+}

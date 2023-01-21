@@ -1,10 +1,9 @@
-import { Box } from "@chakra-ui/react";
 import React from "react";
 
-export default function Music({ url }: { url: string }): JSX.Element {
+export function Music({ url }: { url: string }): JSX.Element {
   const parseNormalLink = url.split("/us")[1];
   return (
-    <Box my={3}>
+    <figure>
       <iframe
         allow="autoplay *; encrypted-media *;"
         frameBorder="0"
@@ -18,6 +17,6 @@ export default function Music({ url }: { url: string }): JSX.Element {
         sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
         src={`https://embed.music.apple.com/us${parseNormalLink}`}
       ></iframe>
-    </Box>
+    </figure>
   );
 }

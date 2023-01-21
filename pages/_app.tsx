@@ -1,7 +1,8 @@
 import { MDXProvider } from "@mdx-js/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Layout } from "../components";
 import "../styles/global.scss";
 
 const DEFAULT_TITLE = "Home";
@@ -12,6 +13,15 @@ export default function GlobalApp({
   pageProps,
 }: AppProps): JSX.Element {
   const title = `${DEFAULT_TITLE} | Jhon Salazar`;
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const isDark = !window
+      ? "light"
+      : window.matchMedia("(prefers-color-scheme:dark)").matches;
+    setTheme(isDark ? "dark" : "light");
+  }, []);
+
   return (
     <>
       <Head>
@@ -22,8 +32,8 @@ export default function GlobalApp({
         <meta name="description" content={DESCRIPTION} />
         <title>{title}</title>
       </Head>
-      <MDXProvider>
-        <Component {...pageProps} />
+      <MDXProvider components={{ wrapper: (props) => <Layout {...props} /> }}>
+        <Component {...pageProps} theme={theme} />
       </MDXProvider>
     </>
   );
