@@ -32,13 +32,13 @@ export function Header({ theme }: Props) {
           my friends call me <strong>Jhon</strong>
         </h2>
       </hgroup>
-      <nav>
+      <nav className="nav-header">
         <ul>
           <li>
             <Link href="/about">About</Link>
           </li>
           <li>
-            <Link href="/recommendations">Recommendations</Link>
+            <Link href="/recommendations">Recs</Link>
           </li>
           <li>
             <a href="http://snesjhon.dev" target="_blank" rel="noreferrer">
@@ -82,7 +82,8 @@ export function Header({ theme }: Props) {
             <a
               className="secondary"
               href="https://www.instagram.com/snesjhon/"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               <FiInstagram />
             </a>
