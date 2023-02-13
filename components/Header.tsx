@@ -22,6 +22,7 @@ export function Header({ theme }: Props) {
   useEffect(() => {
     setToggleLight(theme === "light");
   }, [theme]);
+
   return (
     <header className="container">
       <hgroup className="header">
@@ -50,7 +51,7 @@ export function Header({ theme }: Props) {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./resume.pdf">
               Resume
               <FiExternalLink
                 size="0.9rem"
