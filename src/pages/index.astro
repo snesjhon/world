@@ -1,0 +1,35 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Header, Meta } from "../components";
+
+import { getCollection } from "astro:content";
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<html lang="en" data-theme="light">
+  <head>
+    <Meta title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main style="padding-top: 10px">
+      {
+        posts
+          .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+          .map(async (post) => {
+            const { Content } = await post.render();
+            return (
+              <section>
+                <h2>
+                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                </h2>
+                <Content />
+              </section>
+            );
+          })
+      }
+    </main>
+  </body>
+</html>

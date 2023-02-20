@@ -1,0 +1,100 @@
+---
+import { FiExternalLink, FiInstagram, FiTwitter } from "react-icons/fi";
+import { ThemeSwitcher } from "../components/ThemeSwitcher";
+interface LinkProp {
+  url: string;
+  label: string;
+  external?: boolean;
+}
+
+const links: LinkProp[] = [
+  {
+    url: "/about",
+    label: "About",
+  },
+  {
+    url: "/recommendations",
+    label: "Recs",
+  },
+  {
+    url: "/blog",
+    label: "Archive",
+  },
+  {
+    url: "http://snesjhon.dev",
+    label: "Portfolio",
+    external: true,
+  },
+  {
+    url: "./resume.pdf",
+    label: "Resume",
+    external: true,
+  },
+];
+---
+
+<header>
+  <hgroup>
+    <img src={"./avatar.jpg"} class="avatar" />
+    <h1>Jhonatan Salazar</h1>
+    <h2>
+      Hi! 👋🏽 My full name is <em>Jhonatan Jesus Salazar Rodriguez</em>, but my
+      friends call me <strong>Jhon</strong>
+    </h2>
+  </hgroup>
+  <nav class="nav-header">
+    <ul>
+      {
+        links.map(({ url, label, external }) => (
+          <li>
+            <a
+              href={url}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noreferrer" : undefined}
+            >
+              {label}
+              {external && (
+                <span style="margin-bottom: 5px">
+                  <FiExternalLink size="0.9rem" />
+                </span>
+              )}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul>
+      <li>
+        <ThemeSwitcher client:only="react" />
+      </li>
+      <li>
+        <a
+          class="secondary"
+          href="https://www.twitter.com/snesjhon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FiTwitter />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.instagram.com/snesjhon/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FiInstagram />
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <hr />
+</header>
+
+<style>
+  .avatar {
+    max-width: 15vh;
+    margin-bottom: var(--typography-spacing-vertical);
+    border-radius: 50%;
+  }
+</style>

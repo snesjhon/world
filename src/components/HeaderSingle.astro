@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<header>
+  <nav aria-label="breadcrumb">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>{title}</li>
+    </ul>
+  </nav>
+</header>

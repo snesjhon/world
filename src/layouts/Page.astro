@@ -1,0 +1,19 @@
+---
+import { Meta, HeaderSingle } from "../components";
+
+const { frontmatter } = Astro.props;
+const { title, description } = frontmatter;
+---
+
+<html lang="en">
+  <head>
+    <Meta title={title} description={description} />
+  </head>
+
+  <body>
+    <HeaderSingle title={title} />
+    <main style="padding-top: 10px">
+      <slot />
+    </main>
+  </body>
+</html>
