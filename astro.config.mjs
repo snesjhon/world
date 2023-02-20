@@ -7,4 +7,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://example.com",
   integrations: [react(), mdx(), sitemap()],
+  vite: {
+    ssr: {
+      noExternal: ["react-icons"],
+    },
+  },
 });
