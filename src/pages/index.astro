@@ -1,8 +1,9 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { Header, Meta } from "../components";
+import { FormattedDate, Header, Meta } from "../components";
 
 import { getCollection } from "astro:content";
+import { FiExternalLink } from "react-icons/fi";
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
@@ -10,7 +11,7 @@ const posts = (await getCollection("blog")).sort(
 
 <html lang="en" data-theme="light">
   <head>
-    <Meta title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <Meta title="Home" description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
@@ -22,9 +23,18 @@ const posts = (await getCollection("blog")).sort(
             const { Content } = await post.render();
             return (
               <section>
-                <h2>
-                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-                </h2>
+                <FormattedDate date={post.data.pubDate} />
+                <div>
+                  <h2>
+                    {post.data.title}
+                    <a
+                      href={`/blog/${post.slug}`}
+                      style="vertical-align: text-bottom;"
+                    >
+                      <FiExternalLink size="0.9rem" />
+                    </a>
+                  </h2>
+                </div>
                 <Content />
               </section>
             );
