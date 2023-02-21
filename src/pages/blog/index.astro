@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { HeaderSingle, Meta } from "../../components";
+import Page from "../../layouts/Page.astro";
 import { FormattedDate, SITE_DESCRIPTION } from "../../utils";
 
 const posts = (await getCollection("blog")).sort(
@@ -8,25 +8,16 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <Meta title="Archive" description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <HeaderSingle title="Blog" />
-    <main style="padding-top: 10px">
-      <h1>Archive</h1>
-      <ul>
-        {
-          posts.map((post) => (
-            <li>
-              <FormattedDate date={post.data.pubDate} />
-              <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </main>
-  </body>
-</html>
+<Page title="Archive">
+  <h1>Archive</h1>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <FormattedDate date={post.data.pubDate} />
+          <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Page>

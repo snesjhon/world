@@ -1,8 +1,19 @@
 ---
 import { Meta, HeaderSingle } from "../components";
 
-const { frontmatter } = Astro.props;
-const { title, description } = frontmatter;
+interface Props {
+  title: string;
+}
+
+const astroProps = Astro.props;
+let title = "";
+let description = "";
+if (astroProps.frontmatter) {
+  title = astroProps.frontmatter.title;
+  description = astroProps.frontmatter.description;
+} else if (astroProps.title) {
+  title = astroProps.title;
+}
 ---
 
 <html lang="en">
@@ -12,7 +23,7 @@ const { title, description } = frontmatter;
 
   <body>
     <HeaderSingle title={title} />
-    <main style="padding-top: 10px">
+    <main class="container" style="padding-top: 10px">
       <slot />
     </main>
   </body>

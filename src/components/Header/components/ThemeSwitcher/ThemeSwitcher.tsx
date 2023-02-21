@@ -20,6 +20,7 @@ export function ThemeSwitcher() {
 
   return (
     <a
+      className="secondary"
       style={{ cursor: "pointer" }}
       onClick={() => toggleTheme(toggleLight ? "dark" : "light")}
     >

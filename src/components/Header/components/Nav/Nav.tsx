@@ -28,11 +28,7 @@ export function Nav({ links }: { links: LinkProp[] }) {
         {isMobile ? (
           <li>
             <details role="list">
-              <summary
-                aria-haspopup="listbox"
-                role="button"
-                className="contrast"
-              >
+              <summary aria-haspopup="listbox">
                 <FiMenu />
               </summary>
               <ul role="listbox">{linkList}</ul>
@@ -58,6 +54,7 @@ export function Nav({ links }: { links: LinkProp[] }) {
         </li>
         <li>
           <a
+            className="secondary"
             href="https://www.instagram.com/snesjhon/"
             target="_blank"
             rel="noreferrer"
