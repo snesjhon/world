@@ -1,8 +1,8 @@
 import { FiInstagram, FiTwitter, FiMenu, FiExternalLink } from "react-icons/fi";
+import { useIsMobile } from "../../../hooks/useIsMobile";
+import type { LinkProp } from "../../Header.astro";
 import { ThemeSwitcher } from "../ThemeSwitcher";
-import { useIsMobile } from "../hooks/useIsMobile";
 import "./Nav.css";
-import type { LinkProp } from "../Header.astro";
 
 export function Nav({ links }: { links: LinkProp[] }) {
   const isMobile = useIsMobile();

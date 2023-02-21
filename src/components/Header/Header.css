@@ -1,0 +1,5 @@
+.avatar {
+  max-width: 15vh;
+  margin-bottom: var(--typography-spacing-vertical);
+  border-radius: 50%;
+}

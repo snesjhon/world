@@ -1,5 +1,6 @@
 ---
-import { Nav } from "./Nav/Nav";
+import { Nav } from "./components";
+import "./Header.css";
 
 export interface LinkProp {
   url: string;
@@ -45,11 +46,3 @@ const links: LinkProp[] = [
   <Nav links={links} client:only="react" />
   <hr />
 </header>
-
-<style>
-  .avatar {
-    max-width: 15vh;
-    margin-bottom: var(--typography-spacing-vertical);
-    border-radius: 50%;
-  }
-</style>
