@@ -1,7 +1,7 @@
 ---
-import { FiExternalLink, FiInstagram, FiTwitter } from "react-icons/fi";
-import { ThemeSwitcher } from "../components/ThemeSwitcher";
-interface LinkProp {
+import { Nav } from "./Nav/Nav";
+
+export interface LinkProp {
   url: string;
   label: string;
   external?: boolean;
@@ -42,52 +42,7 @@ const links: LinkProp[] = [
       friends call me <strong>Jhon</strong>
     </h2>
   </hgroup>
-  <nav class="nav-header">
-    <ul>
-      {
-        links.map(({ url, label, external }) => (
-          <li>
-            <a
-              href={url}
-              target={external ? "_blank" : undefined}
-              rel={external ? "noreferrer" : undefined}
-            >
-              {label}
-              {external && (
-                <span style="vertical-align: text-bottom;">
-                  <FiExternalLink size="0.9rem" />
-                </span>
-              )}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-    <ul>
-      <li>
-        <ThemeSwitcher client:only="react" />
-      </li>
-      <li>
-        <a
-          class="secondary"
-          href="https://www.twitter.com/snesjhon"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FiTwitter />
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://www.instagram.com/snesjhon/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FiInstagram />
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <Nav links={links} client:only="react" />
   <hr />
 </header>
 

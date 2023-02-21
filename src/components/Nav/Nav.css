@@ -1,0 +1,8 @@
+summary::after {
+  display: none !important;
+}
+
+.icon {
+  vertical-align: text-bottom;
+  margin-left: 0.2rem;
+}

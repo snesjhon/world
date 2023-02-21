@@ -8,7 +8,6 @@ export function ThemeSwitcher() {
   const [toggleLight, setToggleLight] = useState(!isDark);
 
   const toggleTheme = (theme: "light" | "dark") => {
-    console.log("happens1", { theme, toggleLight });
     const htmlTag = document.getElementsByTagName("html")[0];
     if (theme === "light") {
       htmlTag.setAttribute("data-theme", "light");
