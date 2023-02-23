@@ -24,17 +24,15 @@ const posts = (await getCollection("blog")).sort(
             return (
               <section>
                 <FormattedDate date={post.data.pubDate} />
-                <div>
-                  <h2>
-                    {post.data.title}
-                    <a
-                      href={`/blog/${post.slug}`}
-                      style="vertical-align: text-bottom;"
-                    >
-                      <FiExternalLink size="0.9rem" />
-                    </a>
-                  </h2>
-                </div>
+                <h2>
+                  {post.data.title}
+                  <a
+                    href={`/blog/${post.slug}`}
+                    style="vertical-align: text-bottom;"
+                  >
+                    <FiExternalLink size="0.9rem" />
+                  </a>
+                </h2>
                 <Content />
                 <hr />
               </section>

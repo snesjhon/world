@@ -3,9 +3,8 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://snesjhon.com",
   integrations: [react(), mdx(), sitemap()],
   vite: {
     ssr: {

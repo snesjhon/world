@@ -1,11 +1,9 @@
 import { FiInstagram, FiTwitter, FiMenu, FiExternalLink } from "react-icons/fi";
-import { useIsMobile } from "../../../hooks/useIsMobile";
 import type { LinkProp } from "../../Header.astro";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import "./Nav.css";
 
 export function Nav({ links }: { links: LinkProp[] }) {
-  const isMobile = useIsMobile();
   const linkList = links.map(({ url, label, external }) => (
     <li key={url + label}>
       <a
@@ -24,20 +22,17 @@ export function Nav({ links }: { links: LinkProp[] }) {
   ));
   return (
     <nav>
-      <ul>
-        {isMobile ? (
-          <li>
-            <details role="list">
-              <summary aria-haspopup="listbox">
-                <FiMenu />
-              </summary>
-              <ul role="listbox">{linkList}</ul>
-            </details>
-          </li>
-        ) : (
-          linkList
-        )}
+      <ul className="mobileNav">
+        <li>
+          <details role="list">
+            <summary aria-haspopup="listbox">
+              <FiMenu />
+            </summary>
+            <ul role="listbox">{linkList}</ul>
+          </details>
+        </li>
       </ul>
+      <ul className="desktopNav">{linkList}</ul>
       <ul>
         <li>
           <ThemeSwitcher />
