@@ -2,6 +2,7 @@
 title: "San Diego"
 description: "My Trip to SD"
 pubDate: "Feb 20 2023"
+heroImage: https://lh3.googleusercontent.com/pw/AMWts8A7I6wfk6ck3bN12oGl1CxLJ1MPZ_K2JoPaUpZxHUU7ockSmukynpEvC9CXxgVcMPh9IEer4zyn9Ux4-BkbCZreXcR5Yl_dd56elvL50m30chj5dg6SeT_dpGPChQKcn5dTys18InBZW5YxA3_ionOzDg=w1200-h630
 ---
 
 Nothing like finding some great bookstores
