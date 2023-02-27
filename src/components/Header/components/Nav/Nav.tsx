@@ -22,6 +22,7 @@ export function Nav({ links }: { links: LinkProp[] }) {
   ));
   return (
     <nav>
+      <ul className="desktopNav">{linkList}</ul>
       <ul className="mobileNav">
         <li>
           <details role="list">
@@ -32,7 +33,6 @@ export function Nav({ links }: { links: LinkProp[] }) {
           </details>
         </li>
       </ul>
-      <ul className="desktopNav">{linkList}</ul>
       <ul>
         <li>
           <ThemeSwitcher />
