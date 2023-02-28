@@ -3,14 +3,16 @@ import type { CollectionEntry } from "astro:content";
 import { HeaderSingle, Meta } from "../components";
 import { FormattedDate } from "../utils";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  slug?: string;
+};
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, pubDate, updatedDate, slug } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <Meta title={title} description={description} />
+    <Meta title={title} description={description} slug={slug} />
   </head>
 
   <body>

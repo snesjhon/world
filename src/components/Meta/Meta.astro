@@ -7,15 +7,15 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
+  slug?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const {
-  title,
-  description,
-  image = "https://picsum.photos/1200/630",
-} = Astro.props;
+const { title, description, slug, image } = Astro.props;
+
+const ogImg = image ? image : `../../og/${slug}.png`;
+
 const siteTitle = `${title} | ${SITE_TITLE}`;
 ---
 
@@ -38,11 +38,11 @@ const siteTitle = `${title} | ${SITE_TITLE}`;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image:secure_url" content={new URL(image, Astro.url)} />
+<meta property="og:image:secure_url" content={new URL(ogImg, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={siteTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL(ogImg, Astro.url)} />
