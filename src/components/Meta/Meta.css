@@ -30,3 +30,16 @@
     padding-right: 12rem;
   }
 }
+
+[role="document"] > h1,
+[role="document"] > h2,
+[role="document"] > h3,
+[role="document"] > h4,
+[role="document"] > h5 {
+  line-height: 1;
+  margin-top: var(--typography-spacing-vertical);
+}
+
+[role="document"].container {
+  padding-top: var(--spacing);
+}

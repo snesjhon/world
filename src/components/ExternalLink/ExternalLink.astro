@@ -1,0 +1,16 @@
+---
+import "./ExternalLink.css";
+
+interface Props {
+  href: string;
+  label: string;
+  subLabel?: string;
+}
+
+const { href, label, subLabel } = Astro.props;
+---
+
+<a href={href} target="_blank">
+  <span>{label}</span>
+</a>
+{subLabel && <small class="subLabel">{subLabel}</small>}

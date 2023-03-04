@@ -9,7 +9,10 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Page title="Archive">
-  <h1>Archive</h1>
+  <div class="headings">
+    <h1>Archive</h1>
+    <p>Collection of recent posts from a variety of subjects</p>
+  </div>
   <ul>
     {
       posts.map((post) => (
