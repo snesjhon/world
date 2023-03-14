@@ -1,7 +1,7 @@
 ---
 title: "Writing"
 description: "Learning to Write"
-pubDate: "March 01 2023"
+pubDate: "March 14 2023"
 ---
 
 I think writing is very important, but for me its always been difficult.
