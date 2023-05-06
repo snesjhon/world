@@ -16,9 +16,8 @@
     "@astrojs/react": "^2.0.2",
     "@astrojs/rss": "^2.1.1",
     "@astrojs/sitemap": "^1.0.1",
-    "@astrojs/vercel": "^3.3.0",
     "@picocss/pico": "^1.5.7",
-    "astro": "^2.4.2",
+    "astro": "^2.0.14",
     "astro-og-canvas": "^0.1.6",
     "react-icons": "^4.7.1"
   }
