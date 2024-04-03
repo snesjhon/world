@@ -1,7 +1,7 @@
 import { FiInstagram, FiTwitter, FiMenu, FiExternalLink } from "react-icons/fi";
 import type { LinkProp } from "../../Header.astro";
-import { ThemeSwitcher } from "../ThemeSwitcher";
 import "./Nav.css";
+import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 
 export function Nav({ links }: { links: LinkProp[] }) {
   const linkList = links.map(({ url, label, external }) => (
@@ -36,16 +36,6 @@ export function Nav({ links }: { links: LinkProp[] }) {
       <ul>
         <li>
           <ThemeSwitcher />
-        </li>
-        <li>
-          <a
-            className="secondary"
-            href="https://www.twitter.com/snesjhon"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FiTwitter />
-          </a>
         </li>
         <li>
           <a

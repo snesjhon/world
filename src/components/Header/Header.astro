@@ -1,6 +1,6 @@
 ---
-import { Nav } from "./components";
 import "./Header.css";
+import { Nav } from "./components/Nav/Nav";
 
 export interface LinkProp {
   url: string;
@@ -16,10 +16,6 @@ const links: LinkProp[] = [
   {
     url: "/recommendations",
     label: "Recs",
-  },
-  {
-    url: "/blog",
-    label: "Archive",
   },
   {
     url: "http://snesjhon.dev",
