@@ -1,6 +1,11 @@
 .container {
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-bottom: 0;
+}
+
+section, figure {
+  margin-bottom: var(--spacing);
 }
 
 @media (min-width: 576px) {
@@ -38,8 +43,10 @@
 [role="document"] > h5 {
   line-height: 1;
   margin-top: var(--typography-spacing-vertical);
+  margin-bottom: var(--spacing);
 }
 
 [role="document"].container {
   padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
 }

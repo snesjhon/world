@@ -1,5 +1,5 @@
 ---
-import "@picocss/pico/css/pico.min.css";
+import pico from "@picocss/pico/css/pico.min.css?url";
 import "./Meta.css";
 import { SITE_TITLE } from "../../constants";
 
@@ -40,9 +40,5 @@ const siteTitle = `${title} | ${SITE_TITLE}`;
 <meta property="og:description" content={description} />
 <meta property="og:image:secure_url" content={new URL(ogImg, Astro.url)} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={siteTitle} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(ogImg, Astro.url)} />
+<!-- css -->
+<link rel="stylesheet" href={pico} />
