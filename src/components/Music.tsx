@@ -5,7 +5,7 @@ export function Music({ url }: { url: string }) {
       <iframe
         allow="autoplay *; encrypted-media *;"
         frameBorder="0"
-        height="150"
+        height="155"
         style={{
           width: "100%",
           maxWidth: "660px",

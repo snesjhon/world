@@ -1,4 +1,4 @@
-import { Music } from "../Music/Music";
+import { Music } from "./Music";
 
 interface Props {
   urls: string[];

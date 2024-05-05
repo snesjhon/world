@@ -1,0 +1,44 @@
+---
+import "./Header.css";
+import { Nav } from "./Header/components/Nav/Nav";
+
+export interface LinkProp {
+  url: string;
+  label: string;
+  external?: boolean;
+}
+
+const links: LinkProp[] = [
+  {
+    url: "/about",
+    label: "About",
+  },
+  {
+    url: "/recommendations",
+    label: "Recs",
+  },
+  {
+    url: "http://snesjhon.dev",
+    label: "Portfolio",
+    external: true,
+  },
+  {
+    url: "./resume.pdf",
+    label: "Resume",
+    external: true,
+  },
+];
+---
+
+<header class="container">
+  <hgroup>
+    <img src={"./avatar.jpg"} class="avatar" />
+    <h1>Jhonatan Salazar</h1>
+    <h2>
+      Hi! 👋🏽 My full name is <em>Jhonatan Jesus Salazar Rodriguez</em>, but my
+      friends call me <strong>Jhon</strong>
+    </h2>
+  </hgroup>
+  <Nav links={links} client:only="react" />
+  <hr />
+</header>

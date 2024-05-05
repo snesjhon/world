@@ -1,7 +1,7 @@
 import { FiInstagram, FiTwitter, FiMenu, FiExternalLink } from "react-icons/fi";
-import type { LinkProp } from "../../Header.astro";
 import "./Nav.css";
-import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
+import type { LinkProp } from "../../Header.astro";
+import { ThemeSwitcher } from "../ThemeSwitcher";
 
 export function Nav({ links }: { links: LinkProp[] }) {
   const linkList = links.map(({ url, label, external }) => (

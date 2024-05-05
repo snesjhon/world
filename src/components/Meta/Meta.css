@@ -50,3 +50,37 @@ section, figure {
   padding-top: var(--spacing);
   padding-bottom: var(--spacing);
 }
+
+.subLabel {
+  display: block;
+  color: var(--muted-color);
+}
+
+
+
+summary::after {
+  display: none !important;
+}
+
+.icon {
+  vertical-align: text-bottom;
+  margin-left: 0.2rem;
+}
+
+.mobileNav {
+  display: block;
+}
+
+.desktopNav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobileNav {
+    display: none;
+  }
+
+  .desktopNav {
+    display: block;
+  }
+}
