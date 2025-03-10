@@ -12,7 +12,6 @@ theme: uncover
 <!-- How many of you have used some kind of AI for answering question? GPT, or Meta or Gemini? -->
 <!-- How many of you use Cursor or any other AI Code Editor? -->
 <!-- How many of you have tried some kind of AI tool to help you write code? -->
-<!-- How many of you think that AI is going to take your job? -->
 
 ---
 
@@ -124,7 +123,7 @@ Analyze the data flow in this file:
 ```
 
 ```
-Generate a mermaid diagram and highlight any potential bottlenecks.
+Generate a mermaid diagram emphasizing the data flow in this file
 ```
 
 ---
