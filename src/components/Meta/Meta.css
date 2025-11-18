@@ -4,7 +4,37 @@
   padding-bottom: 0;
 }
 
-section, figure {
+.resume-container {
+  padding: 0.75rem;
+}
+
+.resume-container p {
+  margin-bottom: 0.25rem;
+}
+
+.resume-header {
+}
+
+.resume-header .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resume-header span {
+  padding: 0 0.5rem;
+}
+
+.resume-header h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.resume-container h4 {
+  margin-top: 1rem !important;
+}
+
+section,
+figure {
   margin-bottom: var(--spacing);
 }
 
@@ -55,8 +85,6 @@ section, figure {
   display: block;
   color: var(--muted-color);
 }
-
-
 
 summary::after {
   display: none !important;

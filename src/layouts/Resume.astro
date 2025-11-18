@@ -1,0 +1,31 @@
+---
+import Meta from "../components/Meta/Meta.astro";
+import ResumeHeader from "../components/Resume/ResumeHeader.tsx";
+
+interface Props {
+  title: string;
+}
+
+const astroProps = Astro.props;
+let title = "";
+let description = "";
+let name = "";
+if (astroProps.frontmatter) {
+  title = astroProps.frontmatter.title;
+  description = astroProps.frontmatter.description;
+} else if (astroProps.title) {
+  title = astroProps.title;
+}
+---
+
+<html lang="en">
+  <head>
+    <Meta title={title} description={description} />
+  </head>
+
+  <body>
+    <main class="resume-container" role="document">
+      <slot />
+    </main>
+  </body>
+</html>
