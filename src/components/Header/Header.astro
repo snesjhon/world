@@ -1,6 +1,8 @@
 ---
 import "./Header.css";
 import { Nav } from "./components/Nav/Nav";
+import { Image } from "astro:assets";
+import avatarImage from "../../images/avatar.jpg";
 
 export interface LinkProp {
   url: string;
@@ -36,11 +38,10 @@ const links: LinkProp[] = [
 
 <header class="container">
   <hgroup>
-    <img src={"./avatar.jpg"} class="avatar" />
+    <Image src={avatarImage} alt="Jhonatan Salazar" class="avatar" width={200} height={200} format="webp" quality={85} />
     <h1>Jhonatan Salazar</h1>
     <h2>
-      Hi! 👋🏽 My full name is <em>Jhonatan Jesus Salazar Rodriguez</em>, your new
-      Peruvian friend.
+      Just a kid from Oakland, running around believing in fairy tales
     </h2>
   </hgroup>
   <Nav links={links} client:only="react" />

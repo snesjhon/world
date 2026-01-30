@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+
+const { src, alt = "" } = Astro.props;
+
+// Import the image dynamically from the images folder
+const images = import.meta.glob('/src/images/**/*.{jpeg,jpg,png,gif,webp}', { eager: true });
+const imagePath = `/src/images/${src}`;
+const imageModule = images[imagePath];
+---
+
+{imageModule ? (
+  <Image
+    src={imageModule.default}
+    alt={alt}
+    format="webp"
+    quality={80}
+    loading="lazy"
+  />
+) : (
+  <img src={src} alt={alt} referrerPolicy="no-referrer" />
+)}

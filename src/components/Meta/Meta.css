@@ -1,7 +1,10 @@
 .container {
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-bottom: 0;
+  padding-bottom: 1rem;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .resume-container {
@@ -66,19 +69,72 @@ figure {
   }
 }
 
-[role="document"] > h1,
-[role="document"] > h2,
-[role="document"] > h3,
-[role="document"] > h4,
-[role="document"] > h5 {
-  line-height: 1;
-  margin-top: var(--typography-spacing-vertical);
-  margin-bottom: var(--spacing);
+hgroup {
+  margin-bottom: 2rem;
 }
 
-[role="document"].container {
-  padding-top: var(--spacing);
-  padding-bottom: var(--spacing);
+hgroup > h1,
+hgroup > h2,
+hgroup > h3,
+hgroup > h4,
+hgroup > h5 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* [role='document'].container { */
+/*   padding-top: 0; */
+/*   padding-bottom: var(--spacing); */
+/* } */
+/**/
+/* [role='document'] img { */
+/*   margin-top: calc(var(--spacing) * 2); */
+/*   margin-bottom: calc(var(--spacing) * 2); */
+/* } */
+/**/
+/* [role='document'] .headings { */
+/*   margin-top: calc(var(--spacing) * 2); */
+/*   margin-bottom: calc(var(--spacing) * 2); */
+/* } */
+/**/
+/* [role='document'] .headings h1 { */
+/*   margin-top: 0; */
+/*   margin-bottom: var(--spacing); */
+/*   font-size: 2.5rem; */
+/* } */
+/**/
+/* [role='document'] .headings p { */
+/*   margin-top: 0; */
+/*   margin-bottom: 0; */
+/* } */
+/**/
+/* header[role='heading'] { */
+/*   padding-top: 3rem; */
+/*   padding-bottom: calc(var(--spacing) * 1.5); */
+/* } */
+/**/
+/* header[role='heading'] nav[aria-label='breadcrumb'] ul { */
+/*   padding: 0; */
+/*   margin-bottom: 0; */
+/* } */
+/**/
+/* header[role='heading'] nav[aria-label='breadcrumb'] li::after { */
+/*   content: ' / '; */
+/*   padding: 0 0.5rem; */
+/*   color: var(--muted-color); */
+/* } */
+/**/
+/* header[role='heading'] nav[aria-label='breadcrumb'] li:last-child::after { */
+/*   content: ''; */
+/* } */
+
+/* Remove underlines from links */
+[role='document'] a {
+  text-decoration: none;
+}
+
+[role='document'] a:hover {
+  text-decoration: underline;
 }
 
 .subLabel {

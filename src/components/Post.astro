@@ -1,0 +1,63 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class={`masonry-item ${className || ''}`}>
+  <slot />
+</div>
+
+<style>
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    background: var(--card-background-color);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--card-border-color);
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .masonry-item :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    border: none;
+  }
+
+  .masonry-item :global(p) {
+    padding: 1.5rem;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .masonry-item :global(blockquote) {
+    padding: 2rem;
+    margin: 0;
+    font-style: italic;
+    border: none;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .masonry-item :global(a) {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--primary);
+    transition: all 0.2s ease;
+  }
+
+  .masonry-item :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  /* Add some variation for text-heavy posts */
+  .masonry-item:has(p),
+  .masonry-item:has(blockquote) {
+    background: var(--card-background-color);
+  }
+</style>

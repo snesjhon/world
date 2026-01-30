@@ -2,14 +2,49 @@
 layout: "../layouts/Home.astro"
 ---
 
-import { MediaList } from "../components/MediaList";
+import Masonry from "../components/Masonry.astro";
+import Post from "../components/Post.astro";
+import Img from "../components/Img.astro";
+import { Music } from "../components/Music";
 
-<MediaList
-  urls={[
-    "https://lh3.googleusercontent.com/pw/AP1GczMaJSAkYcptKpw2B3UWlAoSgraxeqxaT8iipTvEouykLe-d_8SJiAm1qCDHm52V2k1JupkXioUT9s7PNQ1PV4pUaPN-GFlX3c7gtTh4XCVerEOvc9OqGNGP9W130E0W_7Dzrr5jRjOcO0E0k6aX-G63XA=w1220-h1626-s-no-gm?authuser=0",
-    "https://music.apple.com/us/album/the-end/1441164426?i=1441164602",
-    "https://lh3.googleusercontent.com/pw/AP1GczMvr5ucTqFd3CnlHRwbTBW5XBC6e9v9LujHFJTT8TolFUi8swfHQTBHI6XX4SgW86Wi5MK0PPW3W2CBfFeZrgKvnCGOpEgGDf59iaZE1CwPD1FqNgxOesUuYpjY7kJ3Ie3KtKu8yjj46-AAxlfBZBI9cg=w2168-h1626-s-no-gm?authuser=0",
-    "https://lh3.googleusercontent.com/pw/AP1GczNuuAGJtobNBC5nMPyOMuE6iFk9ZMcCnpbmxe6-qTZTSIqkMh89tDB7IVwLGUMczHJN2UH7YI8fstIM5ydNMEAV4w5f_yvCB2S6yF8srDza361_CgGJNvArYark5yBmRrlr-1Qf6emmI0J_M9kquek7ZA=w1300-h1626-s-no-gm?authuser=0",
-    "https://lh3.googleusercontent.com/pw/AMWts8A7I6wfk6ck3bN12oGl1CxLJ1MPZ_K2JoPaUpZxHUU7ockSmukynpEvC9CXxgVcMPh9IEer4zyn9Ux4-BkbCZreXcR5Yl_dd56elvL50m30chj5dg6SeT_dpGPChQKcn5dTys18InBZW5YxA3_ionOzDg=w1308-h1742-no?authuser=0",
-  ]}
-/>
+<Masonry>
+
+<Post>
+<Img src="IMG_2721.jpeg" />
+</Post>
+
+<Post>
+<Music url="https://music.apple.com/us/album/the-end/1441164426?i=1441164602" client:only="react" />
+</Post>
+
+<Post>
+<p>Just started a new book on systems design. Really enjoying the practical approach.</p>
+</Post>
+
+
+<Post>
+<blockquote>The best time to plant a tree was 20 years ago. The second best time is now.</blockquote>
+</Post>
+
+
+<Post>
+<Img src="2007_Were-Artist_HW-847x1024.jpg" />
+</Post>
+
+<Post>
+<a href="https://snesjhon.dev">snesjhon.dev →</a>
+</Post>
+
+<Post>
+<Img src="IMG_2708.jpeg" />
+</Post>
+
+<Post>
+<Img src="IMG_1609.jpeg" />
+</Post>
+
+<Post>
+<Music url="https://music.apple.com/us/album/mary-magdalene/1477652618?i=1477652633" client:only="react" />
+</Post>
+
+</Masonry>
