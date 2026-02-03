@@ -6,11 +6,11 @@ import fs from "node:fs";
 
 const posts = await Astro.glob("../posts/*.{md,mdx}");
 
-// Sort posts by file creation time (newest first)
+// Sort posts by file modification time (newest first)
 const sortedPosts = posts.sort((a, b) => {
   const statA = fs.statSync(a.file);
   const statB = fs.statSync(b.file);
-  return statB.birthtime.getTime() - statA.birthtime.getTime();
+  return statB.mtime.getTime() - statA.mtime.getTime();
 });
 ---
 
