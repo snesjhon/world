@@ -1,0 +1,30 @@
+---
+import Home from "../layouts/Home.astro";
+import Masonry from "../components/Masonry.astro";
+import Post from "../components/Post.astro";
+import fs from "node:fs";
+
+const posts = await Astro.glob("../posts/*.{md,mdx}");
+
+// Sort posts by file creation time (newest first)
+const sortedPosts = posts.sort((a, b) => {
+  const statA = fs.statSync(a.file);
+  const statB = fs.statSync(b.file);
+  return statB.birthtime.getTime() - statA.birthtime.getTime();
+});
+---
+
+<Home>
+  <Masonry>
+    {
+      sortedPosts.map((post) => {
+        const Content = post.Content;
+        return (
+          <Post>
+            <Content />
+          </Post>
+        );
+      })
+    }
+  </Masonry>
+</Home>

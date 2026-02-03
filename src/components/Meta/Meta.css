@@ -205,47 +205,14 @@ summary::after {
   display: inline-block;
   width: 100%;
   vertical-align: top;
-}
-
-.masonry-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0;
-  border: none;
-}
-
-.masonry-item p {
-  padding: 1.5rem;
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.masonry-item blockquote {
-  padding: 2rem;
-  margin: 0;
-  font-style: italic;
-  border: none;
-  font-size: 1.1rem;
-  line-height: 1.5;
+  padding: 0.5rem;
 }
 
 .masonry-item a {
   display: block;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: var(--primary);
-  transition: all 0.2s ease;
-}
-
-.masonry-item a:hover {
-  text-decoration: underline;
-}
-
-.masonry-item:has(p),
-.masonry-item:has(blockquote) {
-  background: var(--card-background-color);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
 }
 
 /* ===========================
