@@ -20,11 +20,12 @@ export function ThemeSwitcher() {
 
   return (
     <a
-      className="secondary"
+      className="icon-only"
       style={{ cursor: "pointer" }}
       onClick={() => toggleTheme(toggleLight ? "dark" : "light")}
+      aria-label={`Switch to ${toggleLight ? "dark" : "light"} mode`}
     >
-      <FiSun />
+      <FiSun size="1.1rem" />
     </a>
   );
 }

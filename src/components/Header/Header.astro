@@ -1,14 +1,7 @@
 ---
-import "./Header.css";
-import { Nav } from "./components/Nav/Nav";
+import { Nav, type LinkProp } from "./components/Nav/Nav";
 import { Image } from "astro:assets";
 import avatarImage from "../../images/avatar.jpg";
-
-export interface LinkProp {
-  url: string;
-  label: string;
-  external?: boolean;
-}
 
 const links: LinkProp[] = [
   {
@@ -36,14 +29,13 @@ const links: LinkProp[] = [
 ];
 ---
 
-<header class="container">
-  <hgroup>
-    <Image src={avatarImage} alt="Jhonatan Salazar" class="avatar" width={200} height={200} format="webp" quality={85} />
-    <h1>Jhonatan Salazar</h1>
-    <h2>
+<header class="sidebar-header">
+  <Image src={avatarImage} alt="Jhonatan Salazar" class="avatar" width={400} height={400} format="webp" quality={85} />
+  <div class="profile-info">
+    <div class="profile-name">Jhonatan Salazar</div>
+    <div class="profile-bio">
       Just a kid from Oakland, running around believing in fairy tales
-    </h2>
-  </hgroup>
+    </div>
+  </div>
   <Nav links={links} client:only="react" />
-  <hr />
 </header>

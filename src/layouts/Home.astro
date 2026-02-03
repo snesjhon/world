@@ -11,9 +11,13 @@ import { SITE_DESCRIPTION } from "../constants";
     <Analytics />
   </head>
   <body>
-    <Header />
-    <main class="container" role="document">
-      <slot />
-    </main>
+    <div class="layout-wrapper">
+      <aside class="sidebar">
+        <Header />
+      </aside>
+      <main class="main-content" role="document">
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
