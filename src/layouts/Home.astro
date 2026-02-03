@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro";
 import Header from "../components/Header/Header.astro";
 import Meta from "../components/Meta/Meta.astro";
 import { SITE_DESCRIPTION } from "../constants";
@@ -7,6 +8,7 @@ import { SITE_DESCRIPTION } from "../constants";
 <html lang="en">
   <head>
     <Meta title="Home" description={SITE_DESCRIPTION} />
+    <Analytics />
   </head>
   <body>
     <Header />

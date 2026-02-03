@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro";
 import HeaderSingle from "../components/Header/HeaderSingle.astro";
 import Meta from "../components/Meta/Meta.astro";
 
@@ -20,6 +21,7 @@ if (astroProps.frontmatter) {
 <html lang="en">
   <head>
     <Meta title={title} description={description} />
+    <Analytics />
   </head>
 
   <body>
