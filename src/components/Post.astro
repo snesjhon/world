@@ -2,6 +2,6 @@
 const { class: className } = Astro.props;
 ---
 
-<div class={`masonry-item ${className || ''}`}>
+<article class={`masonry-item ${className || ''}`}>
   <slot />
-</div>
+</article>
