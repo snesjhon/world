@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "applemusic": {
+      "command": "uvx",
+      "args": ["-p", "3.13", "-n", "mcp-applemusic"]
+    }
+  }
+}
