@@ -1,5 +1,5 @@
-import { FiInstagram, FiMenu, FiExternalLink } from 'react-icons/fi';
-import { ThemeSwitcher } from '../ThemeSwitcher';
+import { FiInstagram, FiMenu, FiExternalLink } from "react-icons/fi";
+import { ThemeSwitcher } from "../ThemeSwitcher";
 
 export interface LinkProp {
   url: string;
@@ -12,8 +12,8 @@ export function Nav({ links }: { links: LinkProp[] }) {
     <li key={url + label}>
       <a
         href={url}
-        target={external ? '_blank' : undefined}
-        rel={external ? 'noreferrer' : undefined}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noreferrer" : undefined}
       >
         {label}
         {external && (
@@ -29,7 +29,7 @@ export function Nav({ links }: { links: LinkProp[] }) {
       <ul className="desktopNav">{linkList}</ul>
       <ul
         className="desktopNav"
-        style={{ flexDirection: 'row', gap: '0.75rem', marginTop: '0.5rem' }}
+        style={{ flexDirection: "row", gap: "0.75rem", marginTop: "0.5rem" }}
       >
         <li>
           <ThemeSwitcher />
