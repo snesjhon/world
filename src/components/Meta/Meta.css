@@ -23,6 +23,7 @@ figure {
 .subLabel {
   display: block;
   color: var(--muted-color);
+  padding-bottom: 0.5rem;
 }
 
 summary::after {
@@ -146,30 +147,14 @@ summary::after {
    Navigation Styles
    =========================== */
 
-/* nav ul { */
-/*   margin: 0; */
-/*   padding: 0; */
-/*   list-style: none; */
-/* } */
-
 .desktopNav {
   display: flex;
   flex-direction: column;
-  /* gap: 0.35rem; */
-  /* margin-bottom: 1.5rem; */
   align-items: flex-start;
-}
-
-.desktopNav li {
-  /* width: auto; */
 }
 
 .desktopNav a {
   font-size: 0.875rem;
-  /* text-decoration: none; */
-  /* display: inline-block; */
-  /* color: var(--pico-color); */
-  /* padding: 0; */
 }
 
 .desktopNav a:hover {
